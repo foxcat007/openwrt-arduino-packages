@@ -7,7 +7,7 @@ index 9143ef0..c8f0746 100644
          'cflags': [ '-Wall', '<(werror)', '-W', '-Wno-unused-parameter',
                      '-Wnon-virtual-dtor', '-pthread', '-fno-rtti',
 -                    '-fno-exceptions', '-pedantic' ],
-+                    '-fno-exceptions', '-pedantic',
++                    '-fno-exceptions', '-pedantic', '-fno-strict-overflow'
 +                    '-Wno-unused-local-typedefs' ],
          'ldflags': [ '-pthread', ],
          'conditions': [
