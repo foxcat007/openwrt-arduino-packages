@@ -28,11 +28,10 @@ PKG_LICENSE_FILE:=LICENSE.txt
 include $(INCLUDE_DIR)/package.mk
 
 define Package/node-arduino-firmata
-  DEPENDS:=+node
+  DEPENDS:=+node +node-serialport
   SUBMENU:=Node.js
   SECTION:=lang
   CATEGORY:=Languages
-  DEPENDS:=+node +node-serialport
   TITLE:=Node.js package to access serial ports for reading and writing
   URL:=https://www.npmjs.org/package/serialport
 endef
@@ -49,11 +48,21 @@ endef
 EXTRA_LDFLAGS="-L$(TOOLCHAIN_DIR)/lib/ -Wl,-rpath-link $(TOOLCHAIN_DIR)/lib/" \
 
 define Build/Compile
-	$(MAKE_FLAGS) \
-	npm_config_arch=$(CONFIG_ARCH) \
+	CC="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-gcc" \
+	CXX="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++" \
+	AR="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-ar" \
+	RANLIB="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-ranlib" \
+	LINK="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++" \
+	LD="$(TOOLCHAIN_DIR)/bin/mips-openwrt-linux-g++" \
+	PATH="/usr/bin/:$(PATH)" \
+	GYPFLAGS="-Dv8_use_mips_abi_hardfloat=false -Dv8_can_use_fpu_instructions=false" \
+	CFLAGS="$(TARGET_CFLAGS) $(EXTRA_CFLAGS) $(TARGET_CPPFLAGS) $(EXTRA_CPPFLAGS)" \
+	CXXFLAGS="$(TARGET_CXXFLAGS) $(EXTRA_CXXFLAGS) $(TARGET_CPPFLAGS) $(EXTRA_CPPFLAGS)" \
+	LDFLAGS="-L$(TOOLCHAIN_DIR)/lib/ -Wl,-rpath-link $(TOOLCHAIN_DIR)/lib/" \
+	npm_config_arch=mips \
 	npm_config_nodedir=$(BUILD_DIR)/node-v$(PKG_NODE_VERSION)/ \
 	PREFIX="$(PKG_INSTALL_DIR)/usr/" \
-	$(STAGING_DIR)/host/bin/npm install -g $(PKG_BUILD_DIR)
+	npm install -g $(PKG_BUILD_DIR)
 endef
 
 define Package/node-arduino-firmata/install
