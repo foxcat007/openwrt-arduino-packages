@@ -49,7 +49,6 @@ define Build/Compile
 	PATH="/usr/bin/:$(PATH)" \
 	GYPFLAGS="-Dv8_use_mips_abi_hardfloat=false -Dv8_can_use_fpu_instructions=false" \
 	LDFLAGS="-L$(TOOLCHAIN_DIR)/lib/ -Wl,-rpath-link $(TOOLCHAIN_DIR)/lib/" \
-	CXXFLAGS="$(TARGET_CFLAGS) $(EXTRA_CPPFLAGS) -Wno-unused-local-typedefs" \
 	$(MAKE) $(PKG_JOBS) -C $(PKG_BUILD_DIR) DESTDIR="$(PKG_INSTALL_DIR)" mips.release library=shared snapshot=off
 endef
 
