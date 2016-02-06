@@ -1,3 +1,3 @@
 #!/bin/sh
 
-echo "default-on" > /sys/class/leds/ds:green:usb/trigger
+echo "default-on" > /sys/class/leds/arduino:white:usb/trigger

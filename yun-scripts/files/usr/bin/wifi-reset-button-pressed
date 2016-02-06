@@ -6,4 +6,3 @@ date +%s > /tmp/wifi.reset
 blink-start 100
 
 logger "wifi reset button pressed"
-
