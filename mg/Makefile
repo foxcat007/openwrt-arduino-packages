@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mg
-PKG_VERSION:=20160118
-PKG_RELEASE:=2
+PKG_VERSION:=20110120
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://homepage.boetes.org/software/mg
-PKG_MD5SUM:=9a47f6958509c7ad453260b559e8f1bd
+PKG_MD5SUM:=f2fa8016a491aa2a9d4c5698c593f31b
 
 include $(INCLUDE_DIR)/package.mk
 
