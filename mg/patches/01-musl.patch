@@ -1,0 +1,24 @@
+diff -ur mg-20110120-a/fileio.c mg-20110120-b/fileio.c
+--- mg-20110120-a/fileio.c
++++ mg-20110120-b/fileio.c
+@@ -574,7 +574,8 @@
+ #elif defined (__GLIBC__)              /* Linux uses reclen instead. */
+                if (dent->d_reclen < len || memcmp(cp, dent->d_name, len) != 0)
+ #else
+-               if (dent->d_namlen < len || memcmp(cp, dent->d_name, len) != 0)
++                 //            if (dent->d_namlen < len || memcmp(cp, dent->d_name, len) != 0)
++               if (dent->d_reclen < len || memcmp(cp, dent->d_name, len) != 0)
+ #endif
+                        continue;
+
+diff -ur mg-20110120-a/sysdef.h mg-20110120-b/sysdef.h
+--- mg-20110120-a/sysdef.h
++++ mg-20110120-b/sysdef.h
+@@ -31,6 +31,7 @@
+ #include <string.h>
+ #include <errno.h>
+ #include <signal.h>
++#include <sys/types.h>
+
+
+ #define        KBLOCK          8192    /* Kill grow.                    */
