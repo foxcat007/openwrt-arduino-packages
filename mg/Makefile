@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=mg
-PKG_VERSION:=20110120
+PKG_VERSION:=20160103
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://homepage.boetes.org/software/mg
-PKG_MD5SUM:=f2fa8016a491aa2a9d4c5698c593f31b
+PKG_SOURCE_URL:=http://devio.us/~bcallah/mg
+PKG_MD5SUM:=3fb248f78b08a7395b87b1b6e940dc7c
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -21,8 +21,8 @@ define Package/mg
   SECTION:=utils
   CATEGORY:=Utilities
   DEPENDS:=+libncurses
-  TITLE:=microscopic GNU Emacs-style editor
-  URL:=http://homepage.boetes.org/software/mg/
+  TITLE:=microscopic GNU Emacs-style editor portable
+  URL:=http://devio.us/~bcallah/mg/
   SUBMENU:=Editors
 endef
 
@@ -34,17 +34,11 @@ define Package/mg/description
 	one Emacs flavor.
 endef
 
-define Build/Configure
-	(cd $(PKG_BUILD_DIR); \
-		$(TARGET_CONFIGURE_OPTS) \
-		./configure \
-	);
-endef
-
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) \
 		LDFLAGS="$(TARGET_LDFLAGS) -lncurses" \
-		CFLAGS="$(TARGET_CFLAGS) $(TARGET_CPPFLAGS)" \
+		CFLAGS="$(TARGET_CFLAGS) $(TARGET_CPPFLAGS) \
+			-D_GNU_SOURCE -D__dead='__attribute__((__noreturn__))'" \
 		CC="$(TARGET_CC)"
 endef
 

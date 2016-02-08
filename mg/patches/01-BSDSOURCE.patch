@@ -1,0 +1,14 @@
+diff -ur mg-20160103-a/fileio.c mg-20160103-b/fileio.c
+--- mg-20160103-a/fileio.c
++++ mg-20160103-b/fileio.c
+@@ -23,6 +23,10 @@
+ #include <string.h>
+ #include <unistd.h>
+ 
++#define st_mtimespec st_mtim
++#define DEFFILEMODE (S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH)
++#define MAXNAMLEN 255
++
+ #include "def.h"
+ #include "kbd.h"
+ #include "pathnames.h"
