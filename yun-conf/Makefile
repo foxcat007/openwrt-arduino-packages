@@ -17,7 +17,7 @@ define Package/yun-conf
   SECTION:=utils
   CATEGORY:=Base system
   TITLE:=Custom Yún configurations
-  DEPENDS:=+base-files +triggerhappy +avahi-dbus-daemon
+  DEPENDS:=+avahi-dbus-daemon +base-files +triggerhappy
 endef
 
 define Package/yun-conf/conffiles
