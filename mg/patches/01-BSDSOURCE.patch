@@ -1,6 +1,5 @@
-diff -ur mg-20160103-a/fileio.c mg-20160103-b/fileio.c
---- mg-20160103-a/fileio.c
-+++ mg-20160103-b/fileio.c
+--- a/fileio.c
++++ b/fileio.c
 @@ -23,6 +23,10 @@
  #include <string.h>
  #include <unistd.h>
