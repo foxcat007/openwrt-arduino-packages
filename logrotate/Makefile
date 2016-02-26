@@ -44,19 +44,19 @@ EXTRA_CFLAGS += $(TARGET_CPPFLAGS)
 EXTRA_LDFLAGS += $(TARGET_LDFLAGS)
 
 define Build/Compile
-    $(call Build/Compile/Default, \
-        RPM_OPT_FLAGS:="$(TARGET_CFLAGS) $(EXTRA_CFLAGS)" \
-        LDFLAGS="$(EXTRA_LDFLAGS)" \
-        logrotate \
-    )
+	$(call Build/Compile/Default, \
+		RPM_OPT_FLAGS:="$(TARGET_CFLAGS) $(EXTRA_CFLAGS)" \
+		LDFLAGS="$(EXTRA_LDFLAGS)" \
+		logrotate \
+	)
 endef
 
 define Package/logrotate/install
-    $(INSTALL_DIR) $(1)/usr/sbin
-    $(INSTALL_BIN) ${PKG_BUILD_DIR}/logrotate $(1)/usr/sbin/
-    $(INSTALL_DIR) $(1)/etc
-    $(INSTALL_DATA) ./files/logrotate.conf $(1)/etc/
-    $(INSTALL_DIR) $(1)/etc/logrotate.d
+	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_BIN) ${PKG_BUILD_DIR}/logrotate $(1)/usr/sbin/
+	$(INSTALL_DIR) $(1)/etc
+	$(INSTALL_DATA) ./files/logrotate.conf $(1)/etc/
+	$(INSTALL_DIR) $(1)/etc/logrotate.d
 endef
 
 $(eval $(call BuildPackage,logrotate))
