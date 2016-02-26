@@ -13,10 +13,10 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)_$(PKG_VERSION).orig.tar.gz
 PKG_SOURCE_URL:= \
-	http://ftp.debian.org/debian/pool/main/l/logrotate \
-	http://ftp.de.debian.org/debian/pool/main/l/logrotate \
-	http://ftp.fr.debian.org/debian/pool/main/l/logrotate \
-	http://ftp.us.debian.org/debian/pool/main/l/logrotate
+    http://ftp.debian.org/debian/pool/main/l/logrotate \
+    http://ftp.de.debian.org/debian/pool/main/l/logrotate \
+    http://ftp.fr.debian.org/debian/pool/main/l/logrotate \
+    http://ftp.us.debian.org/debian/pool/main/l/logrotate
 PKG_MD5SUM:=4492b145b6d542e4a2f41e77fa199ab0
 
 include $(INCLUDE_DIR)/package.mk
@@ -44,19 +44,19 @@ EXTRA_CFLAGS += $(TARGET_CPPFLAGS)
 EXTRA_LDFLAGS += $(TARGET_LDFLAGS)
 
 define Build/Compile
-	$(call Build/Compile/Default, \
-		RPM_OPT_FLAGS:="$(TARGET_CFLAGS) $(EXTRA_CFLAGS)" \
-		LDFLAGS="$(EXTRA_LDFLAGS)" \
-		logrotate \
-	)
+    $(call Build/Compile/Default, \
+        RPM_OPT_FLAGS:="$(TARGET_CFLAGS) $(EXTRA_CFLAGS)" \
+        LDFLAGS="$(EXTRA_LDFLAGS)" \
+        logrotate \
+    )
 endef
 
-define Package/logrotate/install	
-	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) ${PKG_BUILD_DIR}/logrotate $(1)/usr/sbin/
-	$(INSTALL_DIR) $(1)/etc
-	$(INSTALL_DATA) ./files/logrotate.conf $(1)/etc/
-	$(INSTALL_DIR) $(1)/etc/logrotate.d
+define Package/logrotate/install
+    $(INSTALL_DIR) $(1)/usr/sbin
+    $(INSTALL_BIN) ${PKG_BUILD_DIR}/logrotate $(1)/usr/sbin/
+    $(INSTALL_DIR) $(1)/etc
+    $(INSTALL_DATA) ./files/logrotate.conf $(1)/etc/
+    $(INSTALL_DIR) $(1)/etc/logrotate.d
 endef
 
 $(eval $(call BuildPackage,logrotate))
