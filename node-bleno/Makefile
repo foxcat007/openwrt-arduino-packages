@@ -46,7 +46,7 @@ define Build/Compile
 	npm_config_arch=$(CONFIG_ARCH) \
 	npm_config_nodedir=$(BUILD_DIR)/node-v$(PKG_NODE_VERSION)/ \
 	PREFIX="$(PKG_INSTALL_DIR)/usr/" \
-	$(STAGING_DIR)/hoot-$(BOARD)/usr/in/npm install -g $(PKG_BUILD_DIR)
+	$(STAGING_DIR)/root-$(BOARD)/usr/in/npm install -g $(PKG_BUILD_DIR)
 endef
 
 define Package/node-bleno/install
