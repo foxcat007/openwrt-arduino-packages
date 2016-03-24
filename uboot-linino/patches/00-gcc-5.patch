@@ -5,7 +5,7 @@
   * restricted to acting on a single-word quantity.
   */
 -extern __inline__ void
-+static inline void
++static __inline__ void
  set_bit(int nr, volatile void *addr)
  {
  	unsigned long *m = ((unsigned long *) addr) + (nr >> 5);
@@ -14,7 +14,7 @@
   * may be that only one operation succeeds.
   */
 -extern __inline__ void __set_bit(int nr, volatile void * addr)
-+static inline void __set_bit(int nr, volatile void * addr)
++static __inline__ void __set_bit(int nr, volatile void * addr)
  {
  	unsigned long * m = ((unsigned long *) addr) + (nr >> 5);
  
@@ -23,7 +23,7 @@
   * in order to ensure changes are visible on other processors.
   */
 -extern __inline__ void
-+static inline void
++static __inline__ void
  clear_bit(int nr, volatile void *addr)
  {
  	unsigned long *m = ((unsigned long *) addr) + (nr >> 5);
@@ -32,7 +32,7 @@
   * restricted to acting on a single-word quantity.
   */
 -extern __inline__ void
-+static inline void
++static __inline__ void
  change_bit(int nr, volatile void *addr)
  {
  	unsigned long *m = ((unsigned long *) addr) + (nr >> 5);
@@ -41,7 +41,7 @@
   * may be that only one operation succeeds.
   */
 -extern __inline__ void __change_bit(int nr, volatile void * addr)
-+static inline void __change_bit(int nr, volatile void * addr)
++static __inline__ void __change_bit(int nr, volatile void * addr)
  {
  	unsigned long * m = ((unsigned long *) addr) + (nr >> 5);
  
@@ -50,7 +50,7 @@
   * It also implies a memory barrier.
   */
 -extern __inline__ int
-+static inline int
++static __inline__ int
  test_and_set_bit(int nr, volatile void *addr)
  {
  	unsigned long *m = ((unsigned long *) addr) + (nr >> 5);
@@ -59,7 +59,7 @@
   * but actually fail.  You must protect multiple accesses with a lock.
   */
 -extern __inline__ int __test_and_set_bit(int nr, volatile void * addr)
-+static inline int __test_and_set_bit(int nr, volatile void * addr)
++static __inline__ int __test_and_set_bit(int nr, volatile void * addr)
  {
  	int mask, retval;
  	volatile int *a = addr;
@@ -68,7 +68,7 @@
   * It also implies a memory barrier.
   */
 -extern __inline__ int
-+static inline int
++static __inline__ int
  test_and_clear_bit(int nr, volatile void *addr)
  {
  	unsigned long *m = ((unsigned long *) addr) + (nr >> 5);
@@ -77,7 +77,7 @@
   * but actually fail.  You must protect multiple accesses with a lock.
   */
 -extern __inline__ int __test_and_clear_bit(int nr, volatile void * addr)
-+static inline int __test_and_clear_bit(int nr, volatile void * addr)
++static __inline__ int __test_and_clear_bit(int nr, volatile void * addr)
  {
  	int	mask, retval;
  	volatile int	*a = addr;
@@ -86,7 +86,7 @@
   * It also implies a memory barrier.
   */
 -extern __inline__ int
-+static inline int
++static __inline__ int
  test_and_change_bit(int nr, volatile void *addr)
  {
  	unsigned long *m = ((unsigned long *) addr) + (nr >> 5);
@@ -95,7 +95,7 @@
   * but actually fail.  You must protect multiple accesses with a lock.
   */
 -extern __inline__ int __test_and_change_bit(int nr, volatile void * addr)
-+static inline int __test_and_change_bit(int nr, volatile void * addr)
++static __inline__ int __test_and_change_bit(int nr, volatile void * addr)
  {
  	int	mask, retval;
  	volatile int	*a = addr;
@@ -104,7 +104,7 @@
   * restricted to acting on a single-word quantity.
   */
 -extern __inline__ void set_bit(int nr, volatile void * addr)
-+static inline void set_bit(int nr, volatile void * addr)
++static __inline__ void set_bit(int nr, volatile void * addr)
  {
  	int	mask;
  	volatile int	*a = addr;
@@ -113,7 +113,7 @@
   * may be that only one operation succeeds.
   */
 -extern __inline__ void __set_bit(int nr, volatile void * addr)
-+static inline void __set_bit(int nr, volatile void * addr)
++static __inline__ void __set_bit(int nr, volatile void * addr)
  {
  	int	mask;
  	volatile int	*a = addr;
@@ -122,7 +122,7 @@
   * in order to ensure changes are visible on other processors.
   */
 -extern __inline__ void clear_bit(int nr, volatile void * addr)
-+static inline void clear_bit(int nr, volatile void * addr)
++static __inline__ void clear_bit(int nr, volatile void * addr)
  {
  	int	mask;
  	volatile int	*a = addr;
@@ -131,7 +131,7 @@
   * restricted to acting on a single-word quantity.
   */
 -extern __inline__ void change_bit(int nr, volatile void * addr)
-+static inline void change_bit(int nr, volatile void * addr)
++static __inline__ void change_bit(int nr, volatile void * addr)
  {
  	int	mask;
  	volatile int	*a = addr;
@@ -140,7 +140,7 @@
   * may be that only one operation succeeds.
   */
 -extern __inline__ void __change_bit(int nr, volatile void * addr)
-+static inline void __change_bit(int nr, volatile void * addr)
++static __inline__ void __change_bit(int nr, volatile void * addr)
  {
  	unsigned long * m = ((unsigned long *) addr) + (nr >> 5);
  
@@ -149,7 +149,7 @@
   * It also implies a memory barrier.
   */
 -extern __inline__ int test_and_set_bit(int nr, volatile void * addr)
-+static inline int test_and_set_bit(int nr, volatile void * addr)
++static __inline__ int test_and_set_bit(int nr, volatile void * addr)
  {
  	int	mask, retval;
  	volatile int	*a = addr;
@@ -158,7 +158,7 @@
   * but actually fail.  You must protect multiple accesses with a lock.
   */
 -extern __inline__ int __test_and_set_bit(int nr, volatile void * addr)
-+static inline int __test_and_set_bit(int nr, volatile void * addr)
++static __inline__ int __test_and_set_bit(int nr, volatile void * addr)
  {
  	int	mask, retval;
  	volatile int	*a = addr;
@@ -167,7 +167,7 @@
   * It also implies a memory barrier.
   */
 -extern __inline__ int test_and_clear_bit(int nr, volatile void * addr)
-+static inline int test_and_clear_bit(int nr, volatile void * addr)
++static __inline__ int test_and_clear_bit(int nr, volatile void * addr)
  {
  	int	mask, retval;
  	volatile int	*a = addr;
@@ -176,7 +176,7 @@
   * but actually fail.  You must protect multiple accesses with a lock.
   */
 -extern __inline__ int __test_and_clear_bit(int nr, volatile void * addr)
-+static inline int __test_and_clear_bit(int nr, volatile void * addr)
++static __inline__ int __test_and_clear_bit(int nr, volatile void * addr)
  {
  	int	mask, retval;
  	volatile int	*a = addr;
@@ -185,7 +185,7 @@
   * It also implies a memory barrier.
   */
 -extern __inline__ int test_and_change_bit(int nr, volatile void * addr)
-+static inline int test_and_change_bit(int nr, volatile void * addr)
++static __inline__ int test_and_change_bit(int nr, volatile void * addr)
  {
  	int	mask, retval;
  	volatile int	*a = addr;
@@ -194,7 +194,7 @@
   * but actually fail.  You must protect multiple accesses with a lock.
   */
 -extern __inline__ int __test_and_change_bit(int nr, volatile void * addr)
-+static inline int __test_and_change_bit(int nr, volatile void * addr)
++static __inline__ int __test_and_change_bit(int nr, volatile void * addr)
  {
  	int	mask, retval;
  	volatile int	*a = addr;
@@ -203,7 +203,7 @@
   * @addr: Address to start counting from
   */
 -extern __inline__ int test_bit(int nr, volatile void *addr)
-+static inline int test_bit(int nr, volatile void *addr)
++static __inline__ int test_bit(int nr, volatile void *addr)
  {
  	return ((1UL << (nr & 31)) & (((const unsigned int *) addr)[nr >> 5])) != 0;
  }
@@ -212,7 +212,7 @@
   * containing a bit.
   */
 -extern __inline__ int find_first_zero_bit (void *addr, unsigned size)
-+static inline int find_first_zero_bit (void *addr, unsigned size)
++static __inline__ int find_first_zero_bit (void *addr, unsigned size)
  {
  	unsigned long dummy;
  	int res;
@@ -221,7 +221,7 @@
   * @size: The maximum size to search
   */
 -extern __inline__ int find_next_zero_bit (void * addr, int size, int offset)
-+static inline int find_next_zero_bit (void * addr, int size, int offset)
++static __inline__ int find_next_zero_bit (void * addr, int size, int offset)
  {
  	unsigned int *p = ((unsigned int *) addr) + (offset >> 5);
  	int set = 0, bit = offset & 31, res;
@@ -230,7 +230,7 @@
   * Undefined if no zero exists, so code should check against ~0UL first.
   */
 -extern __inline__ unsigned long ffz(unsigned long word)
-+static inline unsigned long ffz(unsigned long word)
++static __inline__ unsigned long ffz(unsigned long word)
  {
  	unsigned int	__res;
  	unsigned int	mask = 1;
@@ -239,7 +239,7 @@
   * @size: The maximum size to search
   */
 -extern __inline__ int find_next_zero_bit(void *addr, int size, int offset)
-+static inline int find_next_zero_bit(void *addr, int size, int offset)
++static __inline__ int find_next_zero_bit(void *addr, int size, int offset)
  {
  	unsigned long *p = ((unsigned long *) addr) + (offset >> 5);
  	unsigned long result = offset & ~31UL;
@@ -248,7 +248,7 @@
  #if (CONFIG_COMMANDS & CFG_CMD_EXT2)
  #ifdef __MIPSEB__
 -extern __inline__ int ext2_set_bit(int nr, void * addr)
-+static inline int ext2_set_bit(int nr, void * addr)
++static __inline__ int ext2_set_bit(int nr, void * addr)
  {
  	int		mask, retval, flags;
  	unsigned char	*ADDR = (unsigned char *) addr;
@@ -257,7 +257,7 @@
  }
  
 -extern __inline__ int ext2_clear_bit(int nr, void * addr)
-+static inline int ext2_clear_bit(int nr, void * addr)
++static __inline__ int ext2_clear_bit(int nr, void * addr)
  {
  	int		mask, retval, flags;
  	unsigned char	*ADDR = (unsigned char *) addr;
@@ -266,7 +266,7 @@
  }
  
 -extern __inline__ int ext2_test_bit(int nr, const void * addr)
-+static inline int ext2_test_bit(int nr, const void * addr)
++static __inline__ int ext2_test_bit(int nr, const void * addr)
  {
  	int			mask;
  	const unsigned char	*ADDR = (const unsigned char *) addr;
@@ -275,7 +275,7 @@
  	ext2_find_next_zero_bit((addr), (size), 0)
  
 -extern __inline__ unsigned long ext2_find_next_zero_bit(void *addr, unsigned long size, unsigned long offset)
-+static inline unsigned long ext2_find_next_zero_bit(void *addr, unsigned long size, unsigned long offset)
++static __inline__ unsigned long ext2_find_next_zero_bit(void *addr, unsigned long size, unsigned long offset)
  {
  	unsigned long *p = ((unsigned long *) addr) + (offset >> 5);
  	unsigned long result = offset & ~31UL;
@@ -340,7 +340,7 @@
  
  #define __IN1(t,s) \
 -extern __inline__ t __in##s(unsigned int port) { t _v;
-+static inline t __in##s(unsigned int port) { t _v;
++static __inline__ t __in##s(unsigned int port) { t _v;
  
  /*
   * Required nops will be inserted by the assembler
@@ -369,7 +369,7 @@
   */
  #define __BUILD_SET_CP0(name,register)                          \
 -extern __inline__ unsigned int                                  \
-+static inline unsigned int                                  \
++static __inline__ unsigned int                                  \
  set_cp0_##name(unsigned int set)				\
  {                                                               \
  	unsigned int res;                                       \
@@ -378,7 +378,7 @@
  }								\
  								\
 -extern __inline__ unsigned int                                  \
-+static inline unsigned int                                  \
++static __inline__ unsigned int                                  \
  clear_cp0_##name(unsigned int clear)				\
  {                                                               \
  	unsigned int res;                                       \
@@ -387,7 +387,7 @@
  }								\
  								\
 -extern __inline__ unsigned int                                  \
-+static inline unsigned int                                  \
++static __inline__ unsigned int                                  \
  change_cp0_##name(unsigned int change, unsigned int new)	\
  {                                                               \
  	unsigned int res;                                       \
@@ -409,7 +409,7 @@
  
  #define __HAVE_ARCH_STRCPY
 -extern __inline__ char *strcpy(char *__dest, __const__ char *__src)
-+static inline char *strcpy(char *__dest, __const__ char *__src)
++static __inline__ char *strcpy(char *__dest, __const__ char *__src)
  {
    char *__xdest = __dest;
  
@@ -418,7 +418,7 @@
  
  #define __HAVE_ARCH_STRNCPY
 -extern __inline__ char *strncpy(char *__dest, __const__ char *__src, size_t __n)
-+static inline char *strncpy(char *__dest, __const__ char *__src, size_t __n)
++static __inline__ char *strncpy(char *__dest, __const__ char *__src, size_t __n)
  {
    char *__xdest = __dest;
  
@@ -427,7 +427,7 @@
  
  #define __HAVE_ARCH_STRCMP
 -extern __inline__ int strcmp(__const__ char *__cs, __const__ char *__ct)
-+static inline int strcmp(__const__ char *__cs, __const__ char *__ct)
++static __inline__ int strcmp(__const__ char *__cs, __const__ char *__ct)
  {
    int __res;
  
@@ -436,7 +436,7 @@
  
  #define __HAVE_ARCH_STRNCMP
 -extern __inline__ int
-+static inline int
++static __inline__ int
  strncmp(__const__ char *__cs, __const__ char *__ct, size_t __count)
  {
  	int __res;
@@ -445,7 +445,7 @@
  
  #define __HAVE_ARCH_MEMSCAN
 -extern __inline__ void *memscan(void *__addr, int __c, size_t __size)
-+static inline void *memscan(void *__addr, int __c, size_t __size)
++static __inline__ void *memscan(void *__addr, int __c, size_t __size)
  {
  	char *__end = (char *)__addr + __size;
  
@@ -456,7 +456,7 @@
  #endif
  
 -extern __inline__ void
-+static inline void
++static __inline__ void
  __sti(void)
  {
  	__asm__ __volatile__(
@@ -465,7 +465,7 @@
   * no nops at all.
   */
 -extern __inline__ void
-+static inline void
++static __inline__ void
  __cli(void)
  {
  	__asm__ __volatile__(
@@ -474,7 +474,7 @@
   * FIXME: This doesn't work for R3000 machines.
   */
 -extern __inline__ unsigned long xchg_u32(volatile int * m, unsigned long val)
-+static inline unsigned long xchg_u32(volatile int * m, unsigned long val)
++static __inline__ unsigned long xchg_u32(volatile int * m, unsigned long val)
  {
  #ifdef CONFIG_CPU_HAS_LLSC
  	unsigned long dummy;
