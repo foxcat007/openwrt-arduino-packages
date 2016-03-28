@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 Arduino LLC
+# Copyright (C) 2014-2016 Arduino LLC
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -9,12 +9,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NPM_NAME:=bleno
 PKG_NAME:=node-$(PKG_NPM_NAME)
-PKG_VERSION:=0.3.5
+PKG_VERSION:=0.4.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NPM_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=http://registry.npmjs.org/$(PKG_NPM_NAME)/-/
-PKG_MD5SUM:=eac90d8b6eb9053928d8fe65ba5640ed
+PKG_MD5SUM:=b739e816a745b415311f91edf7ac58e7
 
 PKG_BUILD_DEPENDS:=node/host
 PKG_NODE_VERSION:=0.12.7
