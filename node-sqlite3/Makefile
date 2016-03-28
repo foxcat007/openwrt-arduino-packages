@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 Arduino LLC
+# Copyright (C) 2014-2016 Arduino LLC
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -9,12 +9,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NPM_NAME:=sqlite3
 PKG_NAME:=node-$(PKG_NPM_NAME)
-PKG_VERSION:=3.1.1
+PKG_VERSION:=3.1.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NPM_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=http://registry.npmjs.org/$(PKG_NPM_NAME)/-/
-PKG_MD5SUM:=f456f738a354fa1cd2829e5109dfe7ee
+PKG_MD5SUM:=f5139b96098b5feae5e5d4f3e0c3b75a
 
 PKG_BUILD_DEPENDS:=node/host
 PKG_NODE_VERSION:=0.12.7
