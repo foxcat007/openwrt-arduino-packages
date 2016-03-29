@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2014 Arduino LLC. All right reserved.
+# Copyright (c) 2014-2016 Arduino LLC. All right reserved.
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -27,6 +27,10 @@ endef
 
 define Package/luci-app-arduino-webpanel/description
 	simplified wifi configuration panel
+endef
+
+define Package/luci-app-arduino-webpanel/conffiles
+/www/index.html
 endef
 
 define Build/Compile
