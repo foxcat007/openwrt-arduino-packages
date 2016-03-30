@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013 Arduino LLC. All right reserved.
+# Copyright (c) 2013-2016 Arduino LLC. All right reserved.
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -23,7 +23,6 @@ endef
 define Package/yun-conf/conffiles
 /etc/avahi/services/arduino.service
 /etc/config/arduino
-/etc/config/firewall
 /etc/config/fstab
 /etc/config/network
 /etc/config/system
@@ -48,7 +47,6 @@ define Package/yun-conf/install
 	$(INSTALL_CONF) ./files/etc/avahi/services/arduino.service $(1)/etc/avahi/services/
 
 	$(INSTALL_CONF) ./files/etc/config/arduino $(1)/etc/config/
-	$(INSTALL_CONF) ./files/etc/config/firewall $(1)/etc/config/
 	$(INSTALL_CONF) ./files/etc/config/fstab $(1)/etc/config/
 	$(INSTALL_CONF) ./files/etc/config/network $(1)/etc/config/
 	$(INSTALL_CONF) ./files/etc/config/system $(1)/etc/config/
