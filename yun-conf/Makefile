@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=yun-conf
 PKG_VERSION:=1.2.0
-PKG_RELEASE:=8
+PKG_RELEASE:=10
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -22,9 +22,7 @@ endef
 
 define Package/yun-conf/conffiles
 /etc/avahi/services/arduino.service
-/etc/avrdude.conf
 /etc/config/arduino
-/etc/config/dhcp
 /etc/config/firewall
 /etc/config/fstab
 /etc/config/network
@@ -52,7 +50,6 @@ define Package/yun-conf/install
 	$(INSTALL_CONF) ./files/etc/avahi/services/arduino.service $(1)/etc/avahi/services/
 
 	$(INSTALL_CONF) ./files/etc/config/arduino $(1)/etc/config/
-	$(INSTALL_CONF) ./files/etc/config/dhcp $(1)/etc/config/
 	$(INSTALL_CONF) ./files/etc/config/firewall $(1)/etc/config/
 	$(INSTALL_CONF) ./files/etc/config/fstab $(1)/etc/config/
 	$(INSTALL_CONF) ./files/etc/config/network $(1)/etc/config/
@@ -60,7 +57,6 @@ define Package/yun-conf/install
 	$(INSTALL_CONF) ./files/etc/config/uhttpd $(1)/etc/config/
 	$(INSTALL_CONF) ./files/etc/config/wireless $(1)/etc/config/
 
-	$(INSTALL_CONF) ./files/etc/avrdude.conf $(1)/etc/
 	$(INSTALL_CONF) ./files/etc/group $(1)/etc/
 	$(INSTALL_CONF) ./files/etc/rc.local $(1)/etc/
 	$(INSTALL_CONF) ./files/etc/shadow $(1)/etc/
