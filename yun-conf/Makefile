@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=yun-conf
 PKG_VERSION:=1.2.0
-PKG_RELEASE:=5
+PKG_RELEASE:=6
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -22,7 +22,20 @@ endef
 
 define Package/yun-conf/conffiles
 /etc/avahi/services/arduino.service
+/etc/avrdude.conf
 /etc/config/arduino
+/etc/config/dhcp
+/etc/config/firewall
+/etc/config/fstab
+/etc/config/network
+/etc/config/system
+/etc/config/uhttpd
+/etc/config/wireless
+/etc/group
+/etc/hotplug.d/button/00-button
+/etc/rc.local
+/etc/shadow
+/etc/sysctl.d/low-memory.conf
 endef
 
 define Build/Compile
