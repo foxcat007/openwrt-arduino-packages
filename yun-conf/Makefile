@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=yun-conf
 PKG_VERSION:=1.2.0
-PKG_RELEASE:=10
+PKG_RELEASE:=11
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -33,7 +33,6 @@ define Package/yun-conf/conffiles
 /etc/hotplug.d/button/00-button
 /etc/rc.local
 /etc/shadow
-/etc/sysctl.d/low-memory.conf
 endef
 
 define Build/Compile
@@ -45,7 +44,6 @@ define Package/yun-conf/install
 	$(INSTALL_DIR) $(1)/etc/arduino
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_DIR) $(1)/etc/hotplug.d/button
-	$(INSTALL_DIR) $(1)/etc/sysctl.d
 
 	$(INSTALL_CONF) ./files/etc/avahi/services/arduino.service $(1)/etc/avahi/services/
 
@@ -62,7 +60,6 @@ define Package/yun-conf/install
 	$(INSTALL_CONF) ./files/etc/shadow $(1)/etc/
 
 	$(INSTALL_CONF) ./files/etc/hotplug.d/button/00-button $(1)/etc/hotplug.d/button/
-	$(INSTALL_CONF) ./files/etc/sysctl.d/low-memory.conf $(1)/etc/sysctl.d/
 
 	$(INSTALL_DATA) ./files/etc/arduino/Caterina-Yun.hex $(1)/etc/arduino/
 	$(INSTALL_DATA) ./files/etc/arduino/openwrt-yun-release $(1)/etc/arduino/
