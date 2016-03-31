@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 PKG_NPM_NAME:=sqlite3
 PKG_NAME:=node-$(PKG_NPM_NAME)
 PKG_VERSION:=3.1.2
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NPM_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=http://registry.npmjs.org/$(PKG_NPM_NAME)/-/
@@ -45,6 +45,7 @@ define Build/Compile
 	$(MAKE_FLAGS) \
 	npm_config_arch=$(CONFIG_ARCH) \
 	npm_config_nodedir=$(BUILD_DIR)/node-v$(PKG_NODE_VERSION)/ \
+	npm_config_cache=$(BUILD_DIR)/node-v$(PKG_NODE_VERSION)/npm-cache \
 	PREFIX="$(PKG_INSTALL_DIR)/usr/" \
 	$(STAGING_DIR)/host/bin/npm install -g $(PKG_BUILD_DIR)
 endef
