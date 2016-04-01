@@ -18,6 +18,7 @@ PKG_MD5SUM:=3b8d287feaf2f3f6a1d310b90d37ddc5
 
 PKG_BUILD_DEPENDS:=node/host
 PKG_NODE_VERSION:=0.12.7
+PKG_USE_MIPS16:=0
 
 include $(INCLUDE_DIR)/package.mk
 
