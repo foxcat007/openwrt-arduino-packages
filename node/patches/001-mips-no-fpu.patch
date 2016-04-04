@@ -11,5 +11,5 @@
 -    'v8_use_mips_abi_hardfloat%': 'true',
 +    'v8_use_mips_abi_hardfloat%': 'false',
  
-     # Default arch variant for MIPS.
-     'mips_arch_variant%': 'r2',
+     # Force disable libstdc++ debug mode.
+     'disable_glibcxx_debug%': 0,
