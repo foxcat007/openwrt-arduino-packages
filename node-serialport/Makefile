@@ -7,40 +7,44 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NPM_NAME:=ws
+PKG_NPM_NAME:=serialport
 PKG_NAME:=node-$(PKG_NPM_NAME)
-PKG_VERSION:=1.0.1
-PKG_RELEASE:=2
+PKG_VERSION:=1.4.6
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NPM_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=http://registry.npmjs.org/$(PKG_NPM_NAME)/-/
-PKG_MD5SUM:=3b8d287feaf2f3f6a1d310b90d37ddc5
+PKG_MD5SUM:=1eb21082e0aa676b8350182a60230808
 
 PKG_BUILD_DEPENDS:=node/host
 PKG_NODE_VERSION:=4.4.2
 PKG_USE_MIPS16:=0
 
+PKG_MAINTAINER:=John Crispin <blogic@openwrt.org>
+PKG_LICENSE:=Custom
+PKG_LICENSE_FILE:=LICENSE
+
 include $(INCLUDE_DIR)/package.mk
 
-define Package/node-ws
+define Package/node-serialport
   DEPENDS:=+node
   SUBMENU:=Node.js
   SECTION:=lang
   CATEGORY:=Languages
-  TITLE:=Simple to use, blazing fast and thoroughly tested websocket client
-  URL:=https://www.npmjs.org/package/ws
+  TITLE:=Node.js package to access serial ports for reading and writing
+  URL:=https://www.npmjs.org/package/serialport
 endef
 
-define Package/node-ws/description
- Simple to use, blazing fast and thoroughly tested websocket client, server and console for node.js, up-to-date against RFC-6455
+define Package/node-serialport/description
+ Node.js package to access serial ports for reading and writing OR Welcome your robotic JavaScript overlords. Better yet, program them!
 endef
-
-EXTRA_LDFLAGS="-L$(TOOLCHAIN_DIR)/lib/ -Wl,-rpath-link $(TOOLCHAIN_DIR)/lib/" \
 
 define Build/Prepare
 	/bin/tar xzf $(DL_DIR)/$(PKG_SOURCE) -C $(PKG_BUILD_DIR) --strip-components 1
 	$(Build/Patch)
 endef
+
+EXTRA_LDFLAGS="-L$(TOOLCHAIN_DIR)/lib/ -Wl,-rpath-link $(TOOLCHAIN_DIR)/lib/" \
 
 define Build/Compile
 	$(MAKE_FLAGS) \
@@ -51,10 +55,10 @@ define Build/Compile
 	$(STAGING_DIR)/host/bin/npm install -g $(PKG_BUILD_DIR)
 endef
 
-define Package/node-ws/install
-	mkdir -p $(1)/usr/lib/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules $(1)/usr/lib/
+define Package/node-serialport/install
+	mkdir -p $(1)/usr/lib/node/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/* $(1)/usr/lib/node/
 endef
 
-$(eval $(call BuildPackage,node-ws))
+$(eval $(call BuildPackage,node-serialport))
 

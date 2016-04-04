@@ -17,7 +17,7 @@ PKG_SOURCE_URL:=http://registry.npmjs.org/$(PKG_NPM_NAME)/-/
 PKG_MD5SUM:=f5139b96098b5feae5e5d4f3e0c3b75a
 
 PKG_BUILD_DEPENDS:=node/host
-PKG_NODE_VERSION:=0.12.7
+PKG_NODE_VERSION:=4.4.2
 PKG_USE_MIPS16:=0
 
 include $(INCLUDE_DIR)/package.mk
