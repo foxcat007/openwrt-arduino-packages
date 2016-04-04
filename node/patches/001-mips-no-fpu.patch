@@ -1,6 +1,6 @@
 --- a/deps/v8/build/toolchain.gypi
 +++ b/deps/v8/build/toolchain.gypi
-@@ -50,10 +50,10 @@
+@@ -56,10 +5610 @@
      'arm_test_noprobe%': 'off',
  
      # Similar to vfp but on MIPS.
