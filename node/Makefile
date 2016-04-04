@@ -48,6 +48,7 @@ MAKE_VARS += \
 CONFIGURE_ARGS= \
 	--dest-cpu=$(CPU) \
 	--dest-os=linux \
+	--with-mips-float-abi=soft \
 	--without-snapshot \
 	--shared-zlib \
 	--shared-openssl \
@@ -56,6 +57,7 @@ CONFIGURE_ARGS= \
 HOST_CONFIGURE_VARS:=
 HOST_CONFIGURE_ARGS:= \
 	--dest-os=linux \
+	--with-mips-float-abi=soft \
 	--without-snapshot \
 	--prefix=$(STAGING_DIR)/host/
 
