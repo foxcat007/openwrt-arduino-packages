@@ -1,15 +1,17 @@
 --- a/package.json
 +++ b/package.json
-@@ -14,9 +14,6 @@
+@@ -14,11 +14,6 @@
      "type": "git",
      "url": "git://github.com/hanshuebner/node-hid.git"
    },
 -  "scripts": {
+-    "test": "node nodehid.js",
 -    "prepublish": "git submodule update --init"
+-    "install": "node-pre-gyp install --fallback-to-build"
 -  },
-   "main": "./index.js",
-   "engines": {
-     "node": ">=0.8.0"
+   "binary": {
+     "module_name": "HID",
+     "module_path": "./build/{module_name}/v{version}/{configuration}/{node_abi}-{platform}-{arch}/",
 --- a/src/wscript
 +++ b/src/wscript
 @@ -3,10 +3,8 @@
@@ -114,13 +116,6 @@
        'defines': [
          '_LARGEFILE_SOURCE',
          '_FILE_OFFSET_BITS=64',
-@@ -108,4 +55,4 @@
-       'cflags_cc': ['-g', '-exceptions']
-     }
-   ]
--}
-\ No newline at end of file
-+}
 --- /dev/null
 +++ b/src/nan.h
 @@ -0,0 +1,2331 @@
