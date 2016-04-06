@@ -41,6 +41,8 @@ define Package/node-hid/description
  Node.js package to access HID devices
 endef
 
+CPU:=$(subst x86_64,x64,$(subst i386,ia32,$(ARCH)))
+
 EXTRA_LDFLAGS+="-lhidapi-libusb"
 EXTRA_CFLAGS+="-I$(STAGING_DIR)/usr/include/hidapi/"
 
@@ -51,7 +53,7 @@ define Build/Compile
 	npm_config_nodedir=$(BUILD_DIR)/node-v$(PKG_NODE_VERSION)/ \
 	npm_config_cache=$(BUILD_DIR)/node-v$(PKG_NODE_VERSION)/npm-cache \
 	PREFIX="$(PKG_INSTALL_DIR)/usr/" \
-	$(STAGING_DIR)/host/bin/npm install --build-from-source --target_arch=mips -g $(PKG_BUILD_DIR)
+	$(STAGING_DIR)/host/bin/npm install --build-from-source --target_arch=$(CPU) -g $(PKG_BUILD_DIR)
 endef
 
 define Package/node-hid/install
