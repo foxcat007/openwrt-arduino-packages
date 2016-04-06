@@ -43,8 +43,8 @@ endef
 
 CPU:=$(subst x86_64,x64,$(subst i386,ia32,$(ARCH)))
 
-EXTRA_LDFLAGS+="-L$(TOOLCHAIN_DIR)/lib/ -L$(STAGING_DIR)/usr/lib -lhidapi-libusb"
-EXTRA_CFLAGS+="-I$(STAGING_DIR)/usr/include/hidapi/"
+EXTRA_LDFLAGS+=-L$(STAGING_DIR)/usr/lib -lhidapi-libusb
+EXTRA_CFLAGS+=-I$(STAGING_DIR)/usr/include/hidapi
 
 define Build/Compile
 	$(MAKE_VARS) \
