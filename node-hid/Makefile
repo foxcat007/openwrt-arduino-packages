@@ -42,7 +42,9 @@ define Package/node-hid/description
  Node.js package to access HID devices
 endef
 
-EXTRA_LDFLAGS+="-lhidapi-libusb"
+EXTRA_LDFLAGS="-L$(TOOLCHAIN_DIR)/lib/ -Wl,-rpath-link $(TOOLCHAIN_DIR)/lib/" \
+
+EXTRA_LDFLAGS+="-L$(STAGING_DIR)/lib/ -lhidapi-libusb"
 EXTRA_CFLAGS+="-I$(STAGING_DIR)/usr/include/hidapi/"
 
 define Build/Compile
