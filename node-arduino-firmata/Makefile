@@ -29,11 +29,10 @@ PKG_LICENSE_FILE:=LICENSE.txt
 include $(INCLUDE_DIR)/package.mk
 
 define Package/node-arduino-firmata
-  DEPENDS:=+node
+  DEPENDS:=+node +node-serialport
   SUBMENU:=Node.js
   SECTION:=lang
   CATEGORY:=Languages
-  DEPENDS:=+node +node-serialport
   TITLE:=Node.js package to access serial ports for reading and writing
   URL:=https://www.npmjs.org/package/serialport
 endef

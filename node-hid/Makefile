@@ -29,11 +29,10 @@ PKG_LICENSE_FILE:=
 include $(INCLUDE_DIR)/package.mk
 
 define Package/node-hid
-  DEPENDS:=+node
+  DEPENDS:=+node +libusb-1.0 +hidapi +libstdcpp
   SUBMENU:=Node.js
   SECTION:=lang
   CATEGORY:=Languages
-  DEPENDS:=+libusb-1.0 +hidapi +libstdcpp
   TITLE:=Node.js package to access HID devices
   URL:=https://github.com/node-hid/node-hid
 endef
