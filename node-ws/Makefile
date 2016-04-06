@@ -52,8 +52,8 @@ define Build/Compile
 endef
 
 define Package/node-ws/install
-	mkdir -p $(1)/usr/lib/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules $(1)/usr/lib/
+	mkdir -p $(1)/usr/lib/node
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/* $(1)/usr/lib/node/
 endef
 
 $(eval $(call BuildPackage,node-ws))

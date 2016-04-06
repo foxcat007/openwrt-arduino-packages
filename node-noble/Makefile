@@ -52,9 +52,9 @@ define Build/Compile
 endef
 
 define Package/node-noble/install
-	mkdir -p $(1)/usr/lib/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules $(1)/usr/lib/
-	rm -rf $(1)/usr/lib/node_modules/$(PKG_NPM_NAME)/node_modules/ws
+	mkdir -p $(1)/usr/lib/node
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/* $(1)/usr/lib/node/
+	rm -rf $(1)/usr/lib/node/$(PKG_NPM_NAME)/node_modules/ws
 endef
 
 $(eval $(call BuildPackage,node-noble))
