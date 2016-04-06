@@ -35,6 +35,8 @@ define Package/node-noble/description
  A node.js BLE (Bluetooth low energy) central library.
 endef
 
+CPU:=$(subst x86_64,x64,$(subst i386,ia32,$(ARCH)))
+
 EXTRA_LDFLAGS="-L$(TOOLCHAIN_DIR)/lib/ -Wl,-rpath-link $(TOOLCHAIN_DIR)/lib/" \
 
 define Build/Prepare
@@ -48,7 +50,7 @@ define Build/Compile
 	npm_config_nodedir=$(BUILD_DIR)/node-v$(PKG_NODE_VERSION)/ \
 	npm_config_cache=$(BUILD_DIR)/node-v$(PKG_NODE_VERSION)/npm-cache \
 	PREFIX="$(PKG_INSTALL_DIR)/usr/" \
-	$(STAGING_DIR)/host/bin/npm install --target_arch=mips -g $(PKG_BUILD_DIR)
+	$(STAGING_DIR)/host/bin/npm install --target_arch=$(CPU) -g $(PKG_BUILD_DIR)
 endef
 
 define Package/node-noble/install
