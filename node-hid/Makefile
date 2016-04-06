@@ -9,18 +9,17 @@ include $(TOPDIR)/rules.mk
 
 PKG_NPM_NAME:=hid
 PKG_NAME:=node-$(PKG_NPM_NAME)
-PKG_VERSION:=0.5.1
-PKG_RELEASE:=2
+PKG_VERSION:=0.4.0
+PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/node-hid/node-hid.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=35d830b7810c87d32484d0a346621568c4849441
+PKG_SOURCE_VERSION:=c56c8aa5d113c6f2574d1f7e64d41745702965bb
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 
 PKG_BUILD_DEPENDS:=node/host
 PKG_NODE_VERSION:=4.4.2
-PKG_USE_MIPS16:=0
 
 PKG_MAINTAINER:=John Crispin <blogic@openwrt.org>
 PKG_LICENSE:=Custom
@@ -41,10 +40,8 @@ define Package/node-hid/description
  Node.js package to access HID devices
 endef
 
-EXTRA_LDFLAGS=-L$(TOOLCHAIN_DIR)/lib/ -Wl,-rpath-link $(TOOLCHAIN_DIR)/lib/ \
-
-EXTRA_LDFLAGS+=-L$(STAGING_DIR)/lib/ -lhidapi-libusb
-EXTRA_CFLAGS+=-I$(STAGING_DIR)/usr/include/hidapi/
+EXTRA_LDFLAGS+="-lhidapi-libusb"
+EXTRA_CFLAGS+="-I$(STAGING_DIR)/usr/include/hidapi/"
 
 define Build/Compile
 	$(MAKE_VARS) \
@@ -58,7 +55,7 @@ endef
 
 define Package/node-hid/install
 	mkdir -p $(1)/usr/lib/node/node-hid/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/* $(1)/usr/lib/node
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/node-hid/{index.js,package.json,build,node_modules} $(1)/usr/lib/node/node-hid/
 endef
 
 $(eval $(call BuildPackage,node-hid))
