@@ -18,7 +18,7 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=a112dd3e620442802ab52e36d74888b172338f51
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 
-PKG_BUILD_DEPENDS:=node/host
+PKG_BUILD_DEPENDS:=node
 PKG_NODE_VERSION:=4.4.2
 PKG_USE_MIPS16:=0
 
@@ -53,7 +53,7 @@ define Build/Compile
 	npm_config_nodedir=$(BUILD_DIR)/node-v$(PKG_NODE_VERSION)/ \
 	npm_config_cache=$(BUILD_DIR)/node-v$(PKG_NODE_VERSION)/npm-cache \
 	PREFIX="$(PKG_INSTALL_DIR)/usr/" \
-	$(STAGING_DIR)/host/bin/npm install -g $(PKG_BUILD_DIR)
+	$(STAGING_DIR_ROOT)/usr/bin/npm install --build-from-source --target_arch=mips -g $(PKG_BUILD_DIR)
 endef
 
 define Package/node-hid/install
