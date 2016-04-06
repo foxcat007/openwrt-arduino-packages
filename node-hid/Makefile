@@ -15,7 +15,7 @@ PKG_RELEASE:=2
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/node-hid/node-hid.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=a112dd3e620442802ab52e36d74888b172338f51
+PKG_SOURCE_VERSION:=35d830b7810c87d32484d0a346621568c4849441
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 
 PKG_BUILD_DEPENDS:=node/host
@@ -57,7 +57,7 @@ endef
 
 define Package/node-hid/install
 	mkdir -p $(1)/usr/lib/node/node-hid/
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/node-hid/{index.js,package.json,build,node_modules} $(1)/usr/lib/node/node-hid/
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/* $(1)/usr/lib/node
 endef
 
 $(eval $(call BuildPackage,node-hid))
