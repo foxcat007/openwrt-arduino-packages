@@ -57,8 +57,8 @@ define Build/Compile
 endef
 
 define Package/node-hid/install
-	mkdir -p $(1)/usr/lib/node/node-hid
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/node-hid/* $(1)/usr/lib/node/node-hid/
+	mkdir -p $(1)/usr/lib/node
+	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/* $(1)/usr/lib/node/
 endef
 
 $(eval $(call BuildPackage,node-hid))
