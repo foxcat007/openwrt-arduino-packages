@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=node
-PKG_VERSION:=v4.4.2
+PKG_VERSION:=v5.10.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=node-$(PKG_VERSION).tar.gz
@@ -65,13 +65,6 @@ HOST_CONFIGURE_ARGS:= \
 	--prefix=$(STAGING_DIR)/host/
 
 HOST_CONFIGURE_CMD:=python ./configure
-
-ifeq ($(CPU), mips)
-EXTRA_AFLAGS += -msoft-float
-EXTRA_CFLAGS += -msoft-float
-EXTRA_CPPFLAGS += -msoft-float
-EXTRA_LDFLAGS += -msoft-float
-endif
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
