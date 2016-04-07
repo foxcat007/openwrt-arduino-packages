@@ -62,10 +62,10 @@ HOST_CONFIGURE_ARGS:= \
 
 HOST_CONFIGURE_CMD:=python ./configure
 
-EXTRA_AFLAGS += -mfloat-abi=softfp
-EXTRA_CFLAGS += -mfloat-abi=softfp
-EXTRA_CPPFLAGS += -mfloat-abi=softfp
-EXTRA_LDFLAGS += -mfloat-abi=softfp
+EXTRA_AFLAGS += -mfloat-abi=soft
+EXTRA_CFLAGS += -mfloat-abi=soft
+EXTRA_CPPFLAGS += -mfloat-abi=soft
+EXTRA_LDFLAGS += -mfloat-abi=soft
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
