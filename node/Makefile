@@ -62,6 +62,7 @@ HOST_CONFIGURE_ARGS:= \
 
 HOST_CONFIGURE_CMD:=python ./configure
 
+EXTRA_AFLAGS += -mfloat-abi=softfp
 EXTRA_CFLAGS += -mfloat-abi=softfp
 EXTRA_CPPFLAGS += -mfloat-abi=softfp
 EXTRA_LDFLAGS += -mfloat-abi=softfp
