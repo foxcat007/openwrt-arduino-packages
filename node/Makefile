@@ -62,6 +62,10 @@ HOST_CONFIGURE_ARGS:= \
 
 HOST_CONFIGURE_CMD:=python ./configure
 
+EXTRA_CFLAGS += -mfloat-abi=softfp
+EXTRA_CPPFLAGS += -mfloat-abi=softfp
+EXTRA_LDFLAGS += -mfloat-abi=softfp
+
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/include
 	$(CP) $(PKG_INSTALL_DIR)/usr/include/* $(1)/usr/include/
