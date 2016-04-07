@@ -48,11 +48,15 @@ MAKE_VARS += \
 CONFIGURE_ARGS= \
 	--dest-cpu=$(CPU) \
 	--dest-os=linux \
-	--with-mips-float-abi=soft \
 	--without-snapshot \
 	--shared-zlib \
 	--shared-openssl \
 	--prefix=/usr
+
+ifeq ($(CPU), mips)
+CONFIGURE_ARGS+= \
+	--with-mips-float-abi=soft
+endif
 
 HOST_CONFIGURE_VARS:=
 HOST_CONFIGURE_ARGS:= \
@@ -63,10 +67,10 @@ HOST_CONFIGURE_ARGS:= \
 HOST_CONFIGURE_CMD:=python ./configure
 
 ifeq ($(CPU), mips)
-  EXTRA_AFLAGS += -mfloat-abi=soft
-  EXTRA_CFLAGS += -mfloat-abi=soft
-  EXTRA_CPPFLAGS += -mfloat-abi=soft
-  EXTRA_LDFLAGS += -mfloat-abi=soft
+EXTRA_AFLAGS += -mfloat-abi=soft
+EXTRA_CFLAGS += -mfloat-abi=soft
+EXTRA_CPPFLAGS += -mfloat-abi=soft
+EXTRA_LDFLAGS += -mfloat-abi=soft
 endif
 
 define Build/InstallDev
