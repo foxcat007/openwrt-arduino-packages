@@ -67,10 +67,10 @@ HOST_CONFIGURE_ARGS:= \
 HOST_CONFIGURE_CMD:=python ./configure
 
 ifeq ($(CPU), mips)
-EXTRA_AFLAGS += -mfloat-abi=soft
-EXTRA_CFLAGS += -mfloat-abi=soft
-EXTRA_CPPFLAGS += -mfloat-abi=soft
-EXTRA_LDFLAGS += -mfloat-abi=soft
+EXTRA_AFLAGS += -msoft-float
+EXTRA_CFLAGS += -msoft-float
+EXTRA_CPPFLAGS += -msoft-float
+EXTRA_LDFLAGS += -msoft-float
 endif
 
 define Build/InstallDev
