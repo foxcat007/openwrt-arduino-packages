@@ -5,4 +5,4 @@ blink-start 100
 reset_has_fo=true
 /sbin/jffs2reset -y && /sbin/reboot &
 
-return 0
+exit 0
