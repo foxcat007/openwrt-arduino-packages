@@ -45,21 +45,21 @@ define Package/yun-conf/install
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_DIR) $(1)/etc/hotplug.d/button
 
-	$(INSTALL_CONF) ./files/etc/avahi/services/arduino.service $(1)/etc/avahi/services/
+	$(INSTALL_DATA) ./files/etc/avahi/services/arduino.service $(1)/etc/avahi/services/
 
-	$(INSTALL_CONF) ./files/etc/config/arduino $(1)/etc/config/
-	$(INSTALL_CONF) ./files/etc/config/firewall $(1)/etc/config/
-	$(INSTALL_CONF) ./files/etc/config/fstab $(1)/etc/config/
-	$(INSTALL_CONF) ./files/etc/config/network $(1)/etc/config/
-	$(INSTALL_CONF) ./files/etc/config/system $(1)/etc/config/
-	$(INSTALL_CONF) ./files/etc/config/uhttpd $(1)/etc/config/
-	$(INSTALL_CONF) ./files/etc/config/wireless $(1)/etc/config/
+	$(INSTALL_DATA) ./files/etc/config/arduino $(1)/etc/config/
+	$(INSTALL_DATA) ./files/etc/config/firewall $(1)/etc/config/
+	$(INSTALL_DATA) ./files/etc/config/fstab $(1)/etc/config/
+	$(INSTALL_DATA) ./files/etc/config/network $(1)/etc/config/
+	$(INSTALL_DATA) ./files/etc/config/system $(1)/etc/config/
+	$(INSTALL_DATA) ./files/etc/config/uhttpd $(1)/etc/config/
+	$(INSTALL_DATA) ./files/etc/config/wireless $(1)/etc/config/
 
-	$(INSTALL_CONF) ./files/etc/group $(1)/etc/
-	$(INSTALL_CONF) ./files/etc/rc.local $(1)/etc/
+	$(INSTALL_DATA) ./files/etc/group $(1)/etc/
+	$(INSTALL_DATA) ./files/etc/rc.local $(1)/etc/
 	$(INSTALL_CONF) ./files/etc/shadow $(1)/etc/
 
-	$(INSTALL_CONF) ./files/etc/hotplug.d/button/00-button $(1)/etc/hotplug.d/button/
+	$(INSTALL_DATA) ./files/etc/hotplug.d/button/00-button $(1)/etc/hotplug.d/button/
 
 	$(INSTALL_DATA) ./files/etc/arduino/Caterina-Yun.hex $(1)/etc/arduino/
 	$(INSTALL_DATA) ./files/etc/arduino/openwrt-yun-release $(1)/etc/arduino/
