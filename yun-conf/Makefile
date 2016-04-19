@@ -56,7 +56,7 @@ define Package/yun-conf/install
 	$(INSTALL_DATA) ./files/etc/config/wireless $(1)/etc/config/
 
 	$(INSTALL_DATA) ./files/etc/group $(1)/etc/
-	$(INSTALL_DATA) ./files/etc/rc.local $(1)/etc/
+	$(INSTALL_BIN) ./files/etc/rc.local $(1)/etc/
 	$(INSTALL_CONF) ./files/etc/shadow $(1)/etc/
 
 	$(INSTALL_DATA) ./files/etc/hotplug.d/button/00-button $(1)/etc/hotplug.d/button/
