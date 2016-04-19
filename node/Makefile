@@ -79,7 +79,7 @@ define Package/node/install
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/npm/bin/npm-cli.js $(1)/usr/lib/node_modules/npm/bin
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/npm/lib/* $(1)/usr/lib/node_modules/npm/lib/
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/node_modules/npm/node_modules/* $(1)/usr/lib/node_modules/npm/node_modules/
-	$(CP) -r ./files/* $(1)/
+	$(CP) ./files/* $(1)/
 endef
 
 $(eval $(call HostBuild))
