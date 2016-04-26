@@ -39,6 +39,7 @@ CPU:=$(subst x86_64,x64,$(subst i386,ia32,$(ARCH)))
 
 EXTRA_LDFLAGS+=-L$(TOOLCHAIN_DIR)/lib/ -Wl,-rpath-link $(TOOLCHAIN_DIR)/lib/
 
+EXTRA_LDFLAGS+=-L$(STAGING_DIR)/usr/lib -ludev
 EXTRA_CFLAGS+=-I$(STAGING_DIR)/usr/include/libusb-1.0
 
 define Build/Prepare
