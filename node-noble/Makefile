@@ -9,12 +9,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NPM_NAME:=noble
 PKG_NAME:=node-$(PKG_NPM_NAME)
-PKG_VERSION:=1.2.1
+PKG_VERSION:=1.5.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NPM_NAME)-$(PKG_VERSION).tgz
 PKG_SOURCE_URL:=http://registry.npmjs.org/$(PKG_NPM_NAME)/-/
-PKG_MD5SUM:=12ab67a93d222df375073853dc551217
+PKG_MD5SUM:=9c1ad429b5fd9e0f046e2aa62d62fe39
 
 PKG_BUILD_DEPENDS:=node/host
 PKG_NODE_VERSION:=0.12.13
@@ -23,7 +23,7 @@ PKG_USE_MIPS16:=0
 include $(INCLUDE_DIR)/package.mk
 
 define Package/node-noble
-  DEPENDS:=+node +node-ws +bluez-libs
+  DEPENDS:=+node +node-ws +bluez-libs +libusb-1.0 +eudev
   SUBMENU:=Node.js
   SECTION:=lang
   CATEGORY:=Languages
