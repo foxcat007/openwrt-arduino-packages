@@ -38,6 +38,7 @@ endef
 CPU:=$(subst x86_64,x64,$(subst i386,ia32,$(ARCH)))
 
 LDFLAGS=-L$(TOOLCHAIN_DIR)/lib/ -Wl,-rpath-link $(TOOLCHAIN_DIR)/lib/ -L$(STAGING_DIR)/lib
+CFLAGS+=-I$(STAGING_DIR)/usr/include/libusb-1.0
 
 define Build/Prepare
 	/bin/tar xzf $(DL_DIR)/$(PKG_SOURCE) -C $(PKG_BUILD_DIR) --strip-components 1
