@@ -29,7 +29,7 @@ PKG_LICENSE_FILE:=
 include $(INCLUDE_DIR)/package.mk
 
 define Package/node-bluetooth-hci-socket
-  DEPENDS:=+node +bluez-libs
+  DEPENDS:=+node +bluez-libs +eudev +libusb-1.0
   SUBMENU:=Node.js
   SECTION:=lang
   CATEGORY:=Languages
