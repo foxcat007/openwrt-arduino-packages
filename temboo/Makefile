@@ -15,6 +15,9 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://downloads.arduino.cc/
 PKG_MD5SUM:=5ca4ba62e6b94f2f06959b1ad7eb65a4
 
+PKG_LICENSE:=
+PKG_LICENSE_FILES:=
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/temboo

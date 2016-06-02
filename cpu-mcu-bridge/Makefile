@@ -15,6 +15,9 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://downloads.arduino.cc/
 PKG_MD5SUM:=878d6a8a6a18e1c497bc1665f5e9f0d6
 
+PKG_LICENSE:=GPL+
+PKG_LICENSE_FILES:=
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/cpu-mcu-bridge

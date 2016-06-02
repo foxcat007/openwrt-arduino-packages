@@ -15,6 +15,9 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=http://downloads.arduino.cc/
 PKG_MD5SUM:=5814cb05c5cd35f3d8a6a1ff08ea18b6
 
+PKG_LICENSE:=GPL+
+PKG_LICENSE_FILES:=
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/luci-app-arduino-webpanel

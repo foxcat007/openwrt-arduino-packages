@@ -11,6 +11,9 @@ PKG_NAME:=yun-conf
 PKG_VERSION:=1.2.0
 PKG_RELEASE:=12
 
+PKG_LICENSE:=
+PKG_LICENSE_FILES:=
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/yun-conf

@@ -11,6 +11,9 @@ PKG_NAME:=uSDaemon
 PKG_VERSION:=1.0.0
 PKG_RELEASE:=1
 
+PKG_LICENSE:=
+PKG_LICENSE_FILES:=
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/uSDaemon

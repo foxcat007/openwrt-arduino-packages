@@ -11,6 +11,9 @@ PKG_NAME:=yun-scripts
 PKG_VERSION:=1.3
 PKG_RELEASE:=1
 
+PKG_LICENSE:=
+PKG_LICENSE_FILES:=
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/yun-scripts

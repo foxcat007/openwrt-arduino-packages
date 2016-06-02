@@ -17,6 +17,9 @@ PKG_SOURCE_SUBDIR:=spacebrew-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=0299adaca762f75afd4551aa63ff54c703cbd7e6
 PKG_SOURCE_PROTO:=git
 
+PKG_LICENSE:=
+PKG_LICENSE_FILES:=
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/spacebrew
