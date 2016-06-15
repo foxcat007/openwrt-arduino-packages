@@ -116,7 +116,7 @@ endif
 
 define Build/Prepare
 	$(call Build/Prepare/Default)
-	$(CP) ./files/* $(PKG_BUILD_DIR)	
+	$(CP) ./files/* $(PKG_BUILD_DIR)
 	$(CP) ./$(CAL_DATA) $(BIN_DIR)/linino-caldata.bin && touch $(BIN_DIR)/linino-caldata.bin
 endef
 
