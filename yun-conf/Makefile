@@ -48,6 +48,7 @@ define Package/yun-conf/install
 	$(INSTALL_DIR) $(1)/etc/arduino
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_DIR) $(1)/etc/hotplug.d/button
+	$(INSTALL_DIR) $(1)/www/cgi-bin
 
 	$(INSTALL_DATA) ./files/etc/avahi/services/arduino.service $(1)/etc/avahi/services/
 
@@ -72,7 +73,9 @@ define Package/yun-conf/install
 	$(INSTALL_DATA) ./files/etc/arduino/wifi_timezones.csv.gz $(1)/etc/arduino
 	$(INSTALL_DATA) ./files/etc/arduino/wifi_error_statuses.csv.gz $(1)/etc/arduino
 	$(INSTALL_DATA) ./files/etc/arduino/wifi_error_reasons.csv.gz $(1)/etc/arduino
+
 	$(INSTALL_DATA) ./files/etc/LININO_CONTRIBUTORS.TXT $(1)/etc/
+	$(INSTALL_BIN) ./files/www/cgi-bin/firstconfig.cgi $(1)/www/cgi-bin/
 endef
 
 $(eval $(call BuildPackage,yun-conf))
