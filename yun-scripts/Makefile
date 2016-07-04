@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=yun-scripts
 PKG_VERSION:=1.3
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_MAINTAINER:=
 PKG_LICENSE:=
@@ -21,7 +21,7 @@ define Package/yun-scripts
   SECTION:=utils
   CATEGORY:=Base system
   TITLE:=Custom Yún scripts
-  DEPENDS:=+kmod-loop
+  DEPENDS:=+kmod-loop +kmod-spi-gpio-custom
 endef
 
 define Build/Compile
@@ -52,12 +52,24 @@ define Package/yun-scripts/install
 	$(INSTALL_BIN) ./files/usr/bin/upgrade-all $(1)/usr/bin
 	$(INSTALL_BIN) ./files/usr/bin/extract-built-date $(1)/usr/bin
 	$(INSTALL_BIN) ./files/usr/bin/extract-built-date-from-sysupgrade-image $(1)/usr/bin
+	$(INSTALL_BIN) ./files/usr/bin/get-gpio-conf $(1)/usr/bin
+	$(INSTALL_BIN) ./files/usr/bin/run-bossac $(1)/usr/bin
+	$(INSTALL_BIN) ./files/usr/bin/internet-check $(1)/usr/bin
+	$(INSTALL_BIN) ./files/usr/bin/bridge-error $(1)/usr/bin
+	$(INSTALL_BIN) ./files/usr/bin/bridge-started $(1)/usr/bin
+	$(INSTALL_BIN) ./files/usr/bin/bridge-stopped $(1)/usr/bin
+	$(INSTALL_BIN) ./files/usr/bin/autoflash-sketch-usb $(1)/usr/bin
 
 	$(INSTALL_BIN) ./files/etc/init.d/rename-wifi-if-access-point $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/etc/init.d/generate_new_gpg_key $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/etc/init.d/delete_uhttpd_cert $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/etc/init.d/handle_wifi_reset $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/etc/init.d/rngd-turn-off $(1)/etc/init.d
+#	$(INSTALL_BIN) ./files/etc/init.d/avahi-update-config $(1)/etc/init.d
+#	$(INSTALL_BIN) ./files/etc/init.d/webpanel-update-config $(1)/etc/init.d
+#	$(INSTALL_BIN) ./files/etc/init.d/create-spi-gpio $(1)/etc/init.d
+#	$(INSTALL_BIN) ./files/etc/init.d/firstconfig $(1)/etc/init.d
+#	$(INSTALL_BIN) ./files/etc/init.d/internet-check-service $(1)/etc/init.d
 endef
 
 $(eval $(call BuildPackage,yun-scripts))
