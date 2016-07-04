@@ -52,13 +52,13 @@ define Package/yun-conf/install
 
 	$(INSTALL_DATA) ./files/etc/avahi/services/arduino.service $(1)/etc/avahi/services/
 
-	$(INSTALL_DATA) ./files/etc/config/arduino $(1)/etc/config/
+	$(INSTALL_CONF) ./files/etc/config/arduino $(1)/etc/config/
 	$(INSTALL_DATA) ./files/etc/config/firewall $(1)/etc/config/
 	$(INSTALL_DATA) ./files/etc/config/fstab $(1)/etc/config/
 	$(INSTALL_DATA) ./files/etc/config/network $(1)/etc/config/
 	$(INSTALL_DATA) ./files/etc/config/system $(1)/etc/config/
 	$(INSTALL_DATA) ./files/etc/config/uhttpd $(1)/etc/config/
-	$(INSTALL_DATA) ./files/etc/config/wireless $(1)/etc/config/
+	$(INSTALL_CONF) ./files/etc/config/wireless $(1)/etc/config/
 
 	$(INSTALL_DATA) ./files/etc/group $(1)/etc/
 	$(INSTALL_BIN) ./files/etc/rc.local $(1)/etc/
@@ -69,7 +69,7 @@ define Package/yun-conf/install
 	$(INSTALL_DATA) ./files/etc/arduino/Caterina-Yun.hex $(1)/etc/arduino/
 	$(INSTALL_DATA) ./files/etc/arduino/openwrt-yun-release $(1)/etc/arduino/
 	sed -i "s/DATE/`date`/g" $(1)/etc/arduino/openwrt-yun-release
-	$(INSTALL_DATA) ./files/etc/arduino/gpg_gen_key_batch $(1)/etc/arduino/
+	$(INSTALL_CONF) ./files/etc/arduino/gpg_gen_key_batch $(1)/etc/arduino/
 	$(INSTALL_DATA) ./files/etc/arduino/wifi_timezones.csv.gz $(1)/etc/arduino
 	$(INSTALL_DATA) ./files/etc/arduino/wifi_error_statuses.csv.gz $(1)/etc/arduino
 	$(INSTALL_DATA) ./files/etc/arduino/wifi_error_reasons.csv.gz $(1)/etc/arduino
