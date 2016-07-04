@@ -7,4 +7,3 @@ start() {
 	KEY=`uci get uhttpd.main.key`
 	rm -f $CERT $KEY
 }
-

@@ -10,4 +10,3 @@ start() {
 	/usr/bin/gpg --no-default-keyring --secret-keyring /etc/arduino/arduino_gpg.sec --keyring /etc/arduino/arduino_gpg.pub --export --armor --output /etc/arduino/arduino_gpg.asc
 	logger -t gpg "GPG key exported"
 }
-

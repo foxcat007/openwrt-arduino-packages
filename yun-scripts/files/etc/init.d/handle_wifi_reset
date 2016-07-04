@@ -56,4 +56,3 @@ start() {
 		#/bin/sed -i "s/C:192.168/#C:192.168/g" /etc/httpd.conf
 	fi
 }
-

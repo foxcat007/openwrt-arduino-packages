@@ -15,4 +15,3 @@ start() {
 		logger -t rename "WiFi renamed $SSID"
 	fi
 }
-
