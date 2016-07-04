@@ -5,4 +5,3 @@ if [ -L /www/sd ] && [ -d /www/sd ]; then
 else
 	exit 1
 fi
-

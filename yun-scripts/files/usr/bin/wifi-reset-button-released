@@ -29,4 +29,4 @@ then
 	exec wifi-reset-and-reboot
 fi
 
-blink-stop
+blink-stop system

@@ -33,7 +33,7 @@ check_settings()
 
 find_sketch()
 {
-	if [ ! -d $g_mount_folder/sd?? ] 
+	if [ ! -d $g_mount_folder/sd?? ]
 	then
 		return 1
 	fi
@@ -129,7 +129,7 @@ flash_arduino()
 		run-avrdude "$g_sketch" -q -e0xCB -h0xD8 -l0xFF -pm32u4
 		return $?
 	;;
-	
+
 	"arduino_avr_mega*.hex")
 		echo "Flash Arduino Mega"
 		run-avrdude "$g_sketch" -q -e0xFD -h0xD8 -l0xFF -patmega2560
@@ -147,13 +147,13 @@ flash_arduino()
 		run-bossac -i -d --port=ttyATH0 -U false -e -w -v -b "$g_sketch" -R
 		return $?
 	;;
-	
+
 	"arduino_sam_zero*.bin")
 		echo "Flash Arduino Zero"
 		run-bossac -i -d --port=ttyATH0 -U false -e -w -v "$g_sketch" -R
 		return $?
 	;;
-	
+
 	"arduino_avr_yun*.hex")
 		echo "Flash Arduino Yun"
 		if merge-sketch-with-bootloader.lua "$g_sketch"

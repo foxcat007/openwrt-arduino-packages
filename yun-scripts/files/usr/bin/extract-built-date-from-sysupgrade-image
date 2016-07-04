@@ -11,4 +11,3 @@ umount -d $TMP
 rmdir $TMP
 
 echo $BUILT_DATE
-
