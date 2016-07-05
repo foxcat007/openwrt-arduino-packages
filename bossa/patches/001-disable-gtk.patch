@@ -1,15 +1,18 @@
 --- a/Makefile
 +++ b/Makefile
-@@ -168,7 +168,7 @@
+@@ -167,8 +167,9 @@
+ # CXX Flags
  #
  # COMMON_CXXFLAGS+=-Wall -Werror -MT $@ -MD -MP -MF $(@:%.o=%.d) -DVERSION=\"$(VERSION)\" -g -O2
- COMMON_CXXFLAGS+=-Wall -MT $@ -MD -MP -MF $(@:%.o=%.d) -DVERSION=\"$(VERSION)\" -g -O2
+-COMMON_CXXFLAGS+=-Wall -MT $@ -MD -MP -MF $(@:%.o=%.d) -DVERSION=\"$(VERSION)\" -g -O2
 -WX_CXXFLAGS:=$(shell wx-config --cxxflags --version=$(WXVERSION)) -DWX_PRECOMP -Wno-ctor-dtor-privacy -O2 -fno-strict-aliasing
++#COMMON_CXXFLAGS+=-Wall -MT $@ -MD -MP -MF $(@:%.o=%.d) -DVERSION=\"$(VERSION)\" -g -O2
++COMMON_CXXFLAGS+=-MT $@ -MD -MP -MF $(@:%.o=%.d) -DVERSION=\"$(VERSION)\"
 +#WX_CXXFLAGS:=$(shell wx-config --cxxflags --version=$(WXVERSION)) -DWX_PRECOMP -Wno-ctor-dtor-privacy -O2 -fno-strict-aliasing
  BOSSA_CXXFLAGS=$(COMMON_CXXFLAGS) $(WX_CXXFLAGS)
  BOSSAC_CXXFLAGS=$(COMMON_CXXFLAGS)
  BOSSASH_CXXFLAGS=$(COMMON_CXXFLAGS)
-@@ -185,7 +185,7 @@
+@@ -185,7 +186,7 @@
  # Libs
  #
  COMMON_LIBS+=
