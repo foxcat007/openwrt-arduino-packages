@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2014 Arduino LLC. All right reserved.
+# Copyright (c) 2014-2016 Arduino LLC. All right reserved.
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,15 +8,17 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cpu-mcu-bridge
-PKG_VERSION:=1.6.0
+PKG_VERSION:=1.6.1-git
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=http://downloads.arduino.cc/
-PKG_MD5SUM:=878d6a8a6a18e1c497bc1665f5e9f0d6
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/arduino/YunBridge.git
+PKG_SOURCE_VERSION:=f94eb0d6bac5843703b1e482d0a85113087b8d6e
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 
 PKG_MAINTAINER:=
-PKG_LICENSE:=GPL+
+PKG_LICENSE:=
 PKG_LICENSE_FILES:=
 
 include $(INCLUDE_DIR)/package.mk
@@ -38,10 +40,10 @@ endef
 
 define Package/cpu-mcu-bridge/install
 	$(INSTALL_DIR) $(1)/usr/lib/python2.7/bridge
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/*.py $(1)/usr/lib/python2.7/bridge
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/bridge/*.py $(1)/usr/lib/python2.7/bridge
 
 	$(INSTALL_DIR) $(1)/usr/lib/php/bridge
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/php/*.php $(1)/usr/lib/php/bridge
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/bridge/php/*.php $(1)/usr/lib/php/bridge
 endef
 
 $(eval $(call BuildPackage,cpu-mcu-bridge))

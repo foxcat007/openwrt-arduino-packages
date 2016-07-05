@@ -1,8 +1,0 @@
---- a/bridge.py
-+++ b/bridge.py
-@@ -87,4 +87,5 @@ with cbreak():
-     res = pr.process()
-     if res == False:
-       break
-+    time.sleep(0.01)
- 
