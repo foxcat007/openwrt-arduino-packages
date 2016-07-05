@@ -32,6 +32,8 @@ define Package/bossa/description
 endef
 
 define Build/Compile
+	COMMON_CXXFLAGS="$(TARGET_CFLAGS) $(EXTRA_CFLAGS) $(TARGET_CPPFLAGS) $(EXTRA_CPPFLAGS)" \
+	COMMON_LDFLAGS="$(TARGET_LINKFLAGS) $(TARGET_LDFLAGS)" \
 	$(MAKE) -C $(PKG_BUILD_DIR) $(TARGET_CONFIGURE_OPTS) CFLAGS="$(TARGET_CFLAGS)" bin/bossac
 endef
 
