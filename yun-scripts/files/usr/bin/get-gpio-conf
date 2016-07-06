@@ -5,7 +5,7 @@
 . /lib/ar71xx.sh
 
 case $(ar71xx_board_name) in
-nuy)
+yun-shield)
 	GPIO_MCU_RESET=12
 	GPIO_SPI_OE=22
 	GPIO_HANDSHAKE_OE=16
@@ -16,7 +16,7 @@ nuy)
 	LED_RESET_BLINK="yun-shield:white:system"
 	LED_USER="yun-shield:red:user"
 	;;
-yun)
+arduino-yun)
 	GPIO_MCU_RESET=18
 	GPIO_SPI_OE=21
 	GPIO_HANDSHAKE_OE=22

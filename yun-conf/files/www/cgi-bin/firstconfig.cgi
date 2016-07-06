@@ -5,10 +5,10 @@ source /lib/ar71xx.sh
 NAME=""
 
 case $(ar71xx_board_name) in
-  yun)
+  arduino-yun)
     NAME="Yun"
   ;;
-  nuy)
+  yun-shield)
     NAME="Yun Shield"
   ;;
 esac

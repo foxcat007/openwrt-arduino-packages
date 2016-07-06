@@ -8,7 +8,7 @@ START=60
 start() {
 	. /lib/ar71xx.sh
 	case $(ar71xx_board_name) in
-	nuy)
+	yun-shield)
 		sed -i 's/board=yun/description=Yún Shield/g' /etc/avahi/services/arduino.service
 		;;
 	esac
