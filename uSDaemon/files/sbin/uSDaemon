@@ -11,6 +11,7 @@
 # 'block-mount' package within OpenWRT
 
 . /lib/functions/post_mount.sh
+. /lib/ar71xx.sh
 
 TIME=2
 
@@ -38,6 +39,12 @@ update_connected_devices()
 				DEVICES="$DEVICES $sd_name"
 			fi
 		fi
+		mountpoint=`ls -d $sd/$sd_name?`
+		echo $mountpoint
+		for i in $mountpoint
+		do
+			post_auto_mount /mnt/`basename $i`
+		done
 	done
 }
 
@@ -70,4 +77,3 @@ while [ true ]; do
 	update_connected_devices
 	sleep $TIME
 done
-
