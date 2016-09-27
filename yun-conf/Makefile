@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=yun-conf
 PKG_VERSION:=1.2.0
-PKG_RELEASE:=12
+PKG_RELEASE:=13
 
 PKG_MAINTAINER:=
 PKG_LICENSE:=
@@ -27,6 +27,7 @@ endef
 define Package/yun-conf/conffiles
 /etc/avahi/services/arduino.service
 /etc/config/arduino
+/etc/config/dhcp
 /etc/config/firewall
 /etc/config/fstab
 /etc/config/network
@@ -53,6 +54,7 @@ define Package/yun-conf/install
 	$(INSTALL_DATA) ./files/etc/avahi/services/arduino.service $(1)/etc/avahi/services/
 
 	$(INSTALL_CONF) ./files/etc/config/arduino $(1)/etc/config/
+	$(INSTALL_DATA) ./files/etc/config/dhcp $(1)/etc/config/
 	$(INSTALL_DATA) ./files/etc/config/firewall $(1)/etc/config/
 	$(INSTALL_DATA) ./files/etc/config/fstab $(1)/etc/config/
 	$(INSTALL_DATA) ./files/etc/config/network $(1)/etc/config/
