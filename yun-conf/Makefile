@@ -24,21 +24,21 @@ define Package/yun-conf
   DEPENDS:=+base-files
 endef
 
-#define Package/yun-conf/conffiles
+define Package/yun-conf/conffiles
 #/etc/avahi/services/arduino.service
 #/etc/config/arduino
-#/etc/config/dhcp
-#/etc/config/firewall
+/etc/config/dhcp
+/etc/config/firewall
 #/etc/config/fstab
 #/etc/config/network
 #/etc/config/system
-#/etc/config/uhttpd
+/etc/config/uhttpd
 #/etc/config/wireless
-#/etc/group
+/etc/group
 #/etc/hotplug.d/button/00-button
-#/etc/rc.local
-#/etc/shadow
-#endef
+/etc/rc.local
+/etc/shadow
+endef
 
 define Build/Compile
 	# NOOP
