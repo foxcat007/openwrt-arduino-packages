@@ -33,9 +33,9 @@ define Package/luci-app-arduino-webpanel/description
 	simplified wifi configuration panel
 endef
 
-define Package/luci-app-arduino-webpanel/conffiles
-/www/index.html
-endef
+#define Package/luci-app-arduino-webpanel/conffiles
+#/www/index.html
+#endef
 
 define Build/Compile
 	# NOOP
