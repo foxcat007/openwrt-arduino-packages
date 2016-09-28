@@ -25,17 +25,17 @@ define Package/yun-conf
 endef
 
 define Package/yun-conf/conffiles
-#/etc/avahi/services/arduino.service
-#/etc/config/arduino
+/etc/avahi/services/arduino.service
+/etc/config/arduino
 /etc/config/dhcp
 /etc/config/firewall
-#/etc/config/fstab
-#/etc/config/network
-#/etc/config/system
+/etc/config/fstab
+/etc/config/network
+/etc/config/system
 /etc/config/uhttpd
-#/etc/config/wireless
+/etc/config/wireless
 /etc/group
-#/etc/hotplug.d/button/00-button
+/etc/hotplug.d/button/00-button
 /etc/rc.local
 /etc/shadow
 endef
