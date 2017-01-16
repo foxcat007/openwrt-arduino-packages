@@ -1,5 +1,5 @@
-
-# Copyright (C) 2006-2010 OpenWrt.org
+#
+# Copyright (C) 2006-2016 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -10,24 +10,21 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=shellinabox
 PKG_VERSION:=2.20
-PKG_RELEASE:=4
-
-PKG_INSTALL:=1
+PKG_RELEASE:=5
 
 PKG_SOURCE_PROTO:=git
-
-PKG_REVISION:=05b2d3630c48dc9bca678d8158fce486c583c26b
-
-PKG_SOURCE_VERSION=$(PKG_REVISION)
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_URL:=https://github.com/shellinabox/shellinabox.git
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE_VERSION:=05b2d3630c48dc9bca678d8158fce486c583c26b
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REVISION).tar.gz
 
-PKG_FIXUP:=libtool autoreconf
+
+PKG_MAINTAINER:=
+PKG_LICENSE:=
+PKG_LICENSE_FILES:=
 
 PKG_BUILD_DEPENDS:=+libopenssl +libpam
-
-TARGET_CFLAGS += -Wno-error
+PKG_FIXUP:=libtool autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -43,9 +40,9 @@ define Package/shellinabox/description
  Web based AJAX terminal emulator
 endef
 
-define Build/Configure
-	$(call Build/Configure/Default,--disable-runtime-loading --disable-utmp)
-endef
+CONFIGURE_ARGS:= \
+	--disable-runtime-loading \
+	--disable-utmp
 
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) all
