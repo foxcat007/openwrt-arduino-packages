@@ -18,7 +18,6 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=05b2d3630c48dc9bca678d8158fce486c583c26b
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REVISION).tar.gz
 
-
 PKG_MAINTAINER:=
 PKG_LICENSE:=
 PKG_LICENSE_FILES:=
@@ -41,6 +40,7 @@ define Package/shellinabox/description
 endef
 
 CONFIGURE_ARGS:= \
+	--host=$(GNU_TARGET_NAME) \
 	--disable-runtime-loading \
 	--disable-utmp
 
