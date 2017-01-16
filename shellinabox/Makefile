@@ -24,7 +24,7 @@ PKG_LICENSE:=
 PKG_LICENSE_FILES:=
 
 PKG_BUILD_DEPENDS:=+libopenssl +libpam
-PKG_FIXUP:=autoreconf
+PKG_FIXUP:=libtool autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -41,6 +41,7 @@ define Package/shellinabox/description
 endef
 
 CONFIGURE_ARGS:= \
+	--target=$(TARGET_ARCH) \
 	--host=$(GNU_TARGET_NAME) \
 	--enable-runtime-loading=no \
 	--enable-utmp=no
