@@ -5,6 +5,7 @@
 # See /LICENSE for more information.
 #
 # Initial port of shellinabox to OpenWrt - Jan Jaeger 25-MAR-2010
+#
 
 include $(TOPDIR)/rules.mk
 
@@ -23,7 +24,7 @@ PKG_LICENSE:=
 PKG_LICENSE_FILES:=
 
 PKG_BUILD_DEPENDS:=+libopenssl +libpam
-PKG_FIXUP:=libtool autoreconf
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
