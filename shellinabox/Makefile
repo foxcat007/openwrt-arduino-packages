@@ -42,8 +42,8 @@ endef
 
 CONFIGURE_ARGS:= \
 	--host=$(GNU_TARGET_NAME) \
-	--disable-runtime-loading \
-	--disable-utmp
+	--enable-runtime-loading=no \
+	--enable-utmp=no
 
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) all
