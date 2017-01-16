@@ -25,6 +25,8 @@ PKG_LICENSE_FILES:=
 
 PKG_BUILD_DEPENDS:=+libopenssl +libpam
 PKG_FIXUP:=libtool autoreconf
+PKG_INSTALL:=1
+PKG_USE_MIPS16:=0
 
 include $(INCLUDE_DIR)/package.mk
 
