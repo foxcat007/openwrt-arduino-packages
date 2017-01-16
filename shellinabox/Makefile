@@ -41,7 +41,7 @@ define Package/shellinabox/description
 endef
 
 CONFIGURE_ARGS:= \
-	--target=$(TARGET_ARCH) \
+	--target=$(ARCH) \
 	--host=$(GNU_TARGET_NAME) \
 	--enable-runtime-loading=no \
 	--enable-utmp=no
