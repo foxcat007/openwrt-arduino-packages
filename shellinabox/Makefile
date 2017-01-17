@@ -24,6 +24,8 @@ PKG_LICENSE:=GPL-2.0+
 PKG_LICENSE_FILES:=COPYING
 
 PKG_BUILD_DEPENDS:=+libopenssl +libpam
+
+PKG_INSTALL:=1
 PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
