@@ -43,7 +43,7 @@ define Package/shellinabox/description
  Web based AJAX terminal emulator
 endef
 
-TARGET_CFLAGS+= \
+TARGET_CFLAGS+= $(FPIC) \
 	-DHAVE_PTSNAME_R=1
 
 CONFIGURE_ARGS:= \
