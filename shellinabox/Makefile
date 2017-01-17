@@ -20,11 +20,11 @@ PKG_SOURCE_VERSION:=05b2d3630c48dc9bca678d8158fce486c583c26b
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REVISION).tar.gz
 
 PKG_MAINTAINER:=
-PKG_LICENSE:=
-PKG_LICENSE_FILES:=
+PKG_LICENSE:=GPL-2.0+
+PKG_LICENSE_FILES:=COPYING
 
 PKG_BUILD_DEPENDS:=+libopenssl +libpam
-PKG_FIXUP:=libtool autoreconf
+PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
 PKG_USE_MIPS16:=0
 
@@ -42,11 +42,20 @@ define Package/shellinabox/description
  Web based AJAX terminal emulator
 endef
 
+TARGET_CFLAGS += $(FPIC) \
+	-DHAVE_PTSNAME_R=1
+
 CONFIGURE_ARGS:= \
 	--target=$(ARCH) \
 	--host=$(GNU_TARGET_NAME) \
-	--enable-runtime-loading=no \
-	--enable-utmp=no
+	--disable-runtime-loading \
+	--disable-utmp
+
+CONFIGURE_VARS += \
+	config_BUILD_CC="$(HOSTCC)" \
+	config_BUILD_CFLAGS="-O2" \
+	config_TARGET_CC="$(TARGET_CC)" \
+	config_TARGET_CFLAGS="$(TARGET_CFLAGS)"
 
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) all
