@@ -42,16 +42,14 @@ define Package/shellinabox/description
  Web based AJAX terminal emulator
 endef
 
-TARGET_CFLAGS += $(FPIC) \
+TARGET_CFLAGS+= \
 	-DHAVE_PTSNAME_R=1
 
 CONFIGURE_ARGS:= \
-	--target=$(ARCH) \
-	--host=$(GNU_TARGET_NAME) \
 	--disable-runtime-loading \
 	--disable-utmp
 
-CONFIGURE_VARS += \
+CONFIGURE_VARS+= \
 	config_BUILD_CC="$(HOSTCC)" \
 	config_BUILD_CFLAGS="-O2" \
 	config_TARGET_CC="$(TARGET_CC)" \
