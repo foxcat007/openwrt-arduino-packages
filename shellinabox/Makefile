@@ -46,6 +46,7 @@ TARGET_CFLAGS+= \
 	-DHAVE_PTSNAME_R=1
 
 CONFIGURE_ARGS:= \
+	--host=$(GNU_TARGET_NAME) \
 	--disable-runtime-loading \
 	--disable-utmp
 
