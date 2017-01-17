@@ -19,14 +19,12 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=05b2d3630c48dc9bca678d8158fce486c583c26b
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REVISION).tar.gz
 
-PKG_MAINTAINER:=
+PKG_MAINTAINER:=Hirokazu MORIKAWA <morikw2@gmail.com>
 PKG_LICENSE:=GPL-2.0+
 PKG_LICENSE_FILES:=COPYING
 
 PKG_BUILD_DEPENDS:=+libopenssl +libpam
 PKG_FIXUP:=autoreconf
-PKG_INSTALL:=1
-PKG_USE_MIPS16:=0
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -56,10 +54,6 @@ CONFIGURE_VARS+= \
 	config_TARGET_CC="$(TARGET_CC)" \
 	config_TARGET_CFLAGS="$(TARGET_CFLAGS)"
 
-define Build/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR) all
-endef
-
 define Package/shellinabox/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/shellinaboxd $(1)/usr/sbin/
@@ -71,9 +65,8 @@ endef
 
 define Package/shellianbox/prerm
 !#/bin/sh
-
 /etc/init.d/shellinabox-init stop 2> /dev/null
-
+exit 0
 endef
 
 $(eval $(call BuildPackage,shellinabox))
