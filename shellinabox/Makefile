@@ -23,10 +23,11 @@ PKG_MAINTAINER:=Hirokazu MORIKAWA <morikw2@gmail.com>
 PKG_LICENSE:=GPL-2.0+
 PKG_LICENSE_FILES:=COPYING
 
-PKG_BUILD_DEPENDS:=+libopenssl +libpam
-
 PKG_INSTALL:=1
 PKG_FIXUP:=autoreconf
+
+PKG_BUILD_DEPENDS:=+libopenssl +libpam
+PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -65,7 +66,7 @@ define Package/shellinabox/install
 	$(INSTALL_BIN) files/shellinabox-init.sh $(1)/etc/init.d/shellinabox-init
 endef
 
-define Package/shellianbox/prerm
+define Package/shellinabox/prerm
 !#/bin/sh
 # check if we are on real system
 if [ -z "$${IPKG_INSTROOT}" ]; then
