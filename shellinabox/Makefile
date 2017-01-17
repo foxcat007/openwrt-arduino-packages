@@ -67,7 +67,10 @@ endef
 
 define Package/shellianbox/prerm
 !#/bin/sh
-/etc/init.d/shellinabox-init stop 2> /dev/null
+# check if we are on real system
+if [ -z "$${IPKG_INSTROOT}" ]; then
+        /etc/init.d/shellinabox-init stop 2> /dev/null
+fi
 exit 0
 endef
 
