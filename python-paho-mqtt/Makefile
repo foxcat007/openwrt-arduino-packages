@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2010 OpenWrt.org
+# Copyright (C) 2010-2017 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -8,37 +8,35 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=paho-mqtt
-PKG_VERSION:=1.1
+PKG_VERSION:=1.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://pypi.python.org/packages/source/p/paho-mqtt/
-#PKG_BUILD_DIR:=$(BUILD_DIR)/SleekXMPP-$(PKG_NAME)-$(PKG_VERSION)
-PKG_MD5SUM:=
+PKG_SOURCE_URL:=https://pypi.python.org/packages/82/d9/7064d3a0a1d62756a1a809c85b99f864c641b66de84c15458f72193b7708
+PKG_MD5SUM:=9100a6aa706ab699d414ec02705a21eb66f436184691d0bf1f2a85a6213c6c1f
 
-# PKG_BUILD_DEPENDS:=+python-expat +python-openssl +libopenssl
-
-# TARGET_LDFLAGS += -L${STAGING_DIR}/lib \
-		-L${STAGING_DIR}/usr/lib/python2.7
+PKG_LICENSE:=EPL-1.0
+PKG_LICENSE_FILES:=LICENSE.txt
+PKG_MAINTAINER:=
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
 define Package/python-paho-mqtt
-  SECTION:=language-python
+  SECTION:=lang
   CATEGORY:=Languages
   SUBMENU:=Python
   TITLE:=python-paho-mqtt
-  URL:=http://sourceforge.net/projects/paho-mqtt
+  URL:=http://www.eclipse.org/paho/
   DEPENDS:=+python-base +python-xml +python-openssl +libopenssl
 endef
 
 define Package/python-paho-mqtt/description
-Python module interface to the cURL library.
+MQTT version 3.1.1 client class
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,install --prefix=/usr --root=$(PKG_INSTALL_DIR))
+	$(call Build/Compile/PyMod,,install --prefix="/usr" --root="$(PKG_INSTALL_DIR)")
 endef
 
 define Package/python-paho-mqtt/install
