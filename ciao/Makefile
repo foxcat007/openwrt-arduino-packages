@@ -26,7 +26,7 @@ define Package/ciao
   CATEGORY:=Utilities
   SUBMENU:=Ciao
   TITLE:=The new Ciao CPU-MCU Bridge
-  DEPENDS:=+python +python-mini +python-paho-mqtt +python-expat +python-openssl +pyserial
+  DEPENDS:=+python-base +python-paho-mqtt +python-expat +python-openssl +pyserial
 endef
 
 define Package/ciao/description
@@ -45,7 +45,7 @@ endef
 define Package/ciao/install
 	$(INSTALL_DIR) $(1)/usr/lib/python2.7/ciao
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ciao/*.py $(1)/usr/lib/python2.7/ciao
-	
+
 	$(INSTALL_DIR) $(1)/usr/lib/python2.7/ciao/conf
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/ciao/conf/*.conf $(1)/usr/lib/python2.7/ciao/conf
 
