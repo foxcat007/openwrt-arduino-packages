@@ -28,7 +28,7 @@ define Package/python-paho-mqtt
   SUBMENU:=Python
   TITLE:=python-paho-mqtt
   URL:=http://www.eclipse.org/paho/
-  DEPENDS:=+python-base +python-xml +python-openssl +libopenssl
+  DEPENDS:=+python-light +python-xml +python-openssl +libopenssl
 endef
 
 define Package/python-paho-mqtt/description
