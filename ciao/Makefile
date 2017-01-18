@@ -8,18 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ciao
-PKG_REVISION:=b707580e01cd51c26622cbbc1d8295f33c8e80bb
-PKG_VERSION:=0.0.4
-PKG_RELEASE:=3
+PKG_VERSION:=0.1.0
+PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_REVISION).tar.gz
 PKG_SOURCE_URL:=https://github.com/arduino-org/Ciao.git
-PKG_SOURCE_VERSION:=$(PKG_REVISION)
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_REVISION)
-
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_REVISION)
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VISION)
+PKG_SOURCE_VERSION:=e0a169cd87006f8a265b337cb66362b07566f7d7
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -63,7 +59,7 @@ endef
 define Package/ciao/install
 	$(INSTALL_DIR) $(1)/usr/lib/python2.7/ciao
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/ciao/*.py $(1)/usr/lib/python2.7/ciao
-	
+
 	$(INSTALL_DIR) $(1)/usr/lib/python2.7/ciao/conf
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/ciao/conf/*.conf $(1)/usr/lib/python2.7/ciao/conf
 
@@ -80,7 +76,7 @@ define Package/ciao/install
 
 	# Installing ciaotools.py
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/ciaotools.py $(1)/usr/lib/python2.7
-	
+
 	# Installing web pages
 	$(INSTALL_DIR) $(1)/www/braccio
 	$(CP) -r $(PKG_BUILD_DIR)/www/* $(1)/www/braccio
