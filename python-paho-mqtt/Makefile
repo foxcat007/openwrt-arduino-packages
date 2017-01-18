@@ -15,9 +15,9 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://pypi.python.org/packages/82/d9/7064d3a0a1d62756a1a809c85b99f864c641b66de84c15458f72193b7708
 PKG_MD5SUM:=9100a6aa706ab699d414ec02705a21eb66f436184691d0bf1f2a85a6213c6c1f
 
+PKG_MAINTAINER:=Hirokazu MORIKAWA <morikw2@gmail.com>
 PKG_LICENSE:=EPL-1.0
 PKG_LICENSE_FILES:=LICENSE.txt
-PKG_MAINTAINER:=
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
