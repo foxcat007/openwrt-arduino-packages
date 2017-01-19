@@ -79,7 +79,7 @@ endef
 endef
 
 define Package/uboot-ar71xx-linino/config
-	source $(SOURCE)/Config.in
+	source "$(SOURCE)/Config.in"
 endef
 
 ifdef CONFIG_COMPRESSED_UBOOT
