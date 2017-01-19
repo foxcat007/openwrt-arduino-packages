@@ -63,27 +63,30 @@ endef
 define Package/ciao/postinst
 #!/bin/sh
 # check if we are on a real system
-if [ -e /etc/sysctl.conf ]
-then
-	sed -i '/kernel.printk/d' /etc/sysctl.conf
-	echo "kernel.printk = 3 4 1 3" >> /etc/sysctl.conf
-	/sbin/sysctl -p 2>&1 /dev/null
-fi
+if [ -z "$${IPKG_INSTROOT}" ]; then
+  if [ -e /etc/sysctl.conf ]; then
+          sed -i '/kernel.printk/d' /etc/sysctl.conf
+          echo "kernel.printk = 3 4 1 3" >> /etc/sysctl.conf
+          /sbin/sysctl -p 2>&1 /dev/null
+  fi
 
-if [ -e /usr/lib/python2.7/asyncore.py ]
-then
-    sed -i -e s/512/8192/g /usr/lib/python2.7/asyncore.py
+  if [ -e /usr/lib/python2.7/asyncore.py ]; then
+          sed -i -e s/512/8192/g /usr/lib/python2.7/asyncore.py
+  fi
 fi
+exit 0
 endef
 
 define Package/ciao/postrm
 #!/bin/sh
 # check if we are on a real system
-if [ -e /etc/sysctl.conf ]
-then
-	sed -i '/kernel.printk/d' /etc/sysctl.conf
-	/sbin/sysctl -p 2>&1 /dev/null
+if [ -z "$${IPKG_INSTROOT}" ]; then
+  if [ -e /etc/sysctl.conf ]; then
+          sed -i '/kernel.printk/d' /etc/sysctl.conf
+          /sbin/sysctl -p 2>&1 /dev/null
+  fi
 fi
+exit 0
 endef
 
 $(eval $(call BuildPackage,ciao))

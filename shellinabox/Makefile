@@ -66,7 +66,7 @@ define Package/shellinabox/install
 endef
 
 define Package/shellinabox/prerm
-!#/bin/sh
+#!/bin/sh
 # check if we are on real system
 if [ -z "$${IPKG_INSTROOT}" ]; then
         /etc/init.d/shellinabox-init stop 2> /dev/null
