@@ -123,6 +123,5 @@ endef
 #	$(INSTALL_DIR) $(1)/usr/bin
 #endef
 
-$(eval $(call HostBuild))
 $(eval $(call BuildPackage,$(PKG_NAME)))
 #$(eval $(call BuildPackage,$(PKG_NAME)-samples))

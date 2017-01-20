@@ -112,6 +112,5 @@ define Package/ajtcl-samples/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/test/bastress2 $(1)/usr/bin/
 endef
 
-$(eval $(call HostBuild))
 $(eval $(call BuildPackage,ajtcl))
 $(eval $(call BuildPackage,ajtcl-samples))

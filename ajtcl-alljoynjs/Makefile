@@ -92,6 +92,5 @@ define Package/$(PKG_NAME)-samples/install
 	$(CP) $(PKG_BUILD_DIR)/js/*.js $(1)/usr/share/alljoyn.js/
 endef
 
-$(eval $(call HostBuild))
 $(eval $(call BuildPackage,$(PKG_NAME)))
 $(eval $(call BuildPackage,$(PKG_NAME)-samples))
