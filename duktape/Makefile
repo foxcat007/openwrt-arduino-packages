@@ -18,7 +18,7 @@ PKG_SOURCE_URL:=http://duktape.org/
 # PKG_SOURCE_URL:=http://duktape.org/snapshots/
 
 PKG_FILE:="$(STAGING_DIR)/pkginfo/libc.provides"
-PKG_CAT=`cat $(PKG_FILE) | grep libm.so.6` 
+PKG_CAT=`cat $(PKG_FILE) | grep libm.so.6`
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -61,9 +61,8 @@ endef
 
 define Package/duktape/install
 	$(INSTALL_DIR) $(1)/usr/bin/
-	
+
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/duk $(1)/usr/bin/
 endef
 
-$(eval $(call HostBuild))
 $(eval $(call BuildPackage,duktape))
