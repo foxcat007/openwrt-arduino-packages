@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=yun-scripts
 PKG_VERSION:=1.3
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 
 PKG_MAINTAINER:=
 PKG_LICENSE:=
@@ -70,6 +70,7 @@ define Package/yun-scripts/install
 	$(INSTALL_BIN) ./files/etc/init.d/create-spi-gpio $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/etc/init.d/firstconfig $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/etc/init.d/internet-check-service $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/etc/init.d/alljoynfixboot $(1)/etc/init.d
 endef
 
 $(eval $(call BuildPackage,yun-scripts))
