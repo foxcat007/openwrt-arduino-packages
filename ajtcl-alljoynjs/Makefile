@@ -20,8 +20,7 @@ PKG_MD5SUM:=276767da532bf845ca014c7a5d8f7885
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/alljoyn-js-$(PKG_VERSION)
 
-# SCons supports parallel builds but does not support make's jobserver
-PKG_BUILD_PARALLEL:=$(if $(CONFIG_PKG_BUILD_USE_JOBSERVER),0,1)
+PKG_BUILD_PARALLEL:=1
 
 PKG_CONFIG_DEPENDS:= \
 	CONFIG_DEBUG

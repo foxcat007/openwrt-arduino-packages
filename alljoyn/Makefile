@@ -13,8 +13,7 @@ PKG_SOURCE_URL:=https://allseenalliance.org/releases/alljoyn/$(PKG_BASE_VERSION)
 
 PKG_IREMAP:=0
 
-# SCons supports parallel builds but does not support make's jobserver
-PKG_BUILD_PARALLEL:=$(if $(CONFIG_PKG_BUILD_USE_JOBSERVER),0,1)
+PKG_BUILD_PARALLEL:=1
 
 PKG_CONFIG_DEPENDS:= \
 	CONFIG_DEBUG \

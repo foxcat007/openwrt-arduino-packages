@@ -16,8 +16,7 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/base_tcl-$(PKG_VERSION)
 # PKG_SOURCE_URL:=https://git.allseenalliance.org/gerrit/services/base_tcl.git
 # PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
-# SCons supports parallel builds but does not support make's jobserver
-PKG_BUILD_PARALLEL:=$(if $(CONFIG_PKG_BUILD_USE_JOBSERVER),0,1)
+PKG_BUILD_PARALLEL:=1
 
 PKG_CONFIG_DEPENDS:= \
 	CONFIG_DEBUG
