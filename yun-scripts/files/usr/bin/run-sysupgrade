@@ -1,5 +1,8 @@
 #!/bin/sh
-kill-bridge
+
+if [ -e /usr/bin/kill-bridge ]; then
+	/usr/bin/kill-bridge
+fi
 
 cp "$1" /tmp || exit 1
 

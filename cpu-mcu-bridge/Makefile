@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cpu-mcu-bridge
 PKG_VERSION:=1.6.1-git
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/arduino/YunBridge.git
@@ -44,6 +44,14 @@ define Package/cpu-mcu-bridge/install
 
 	$(INSTALL_DIR) $(1)/usr/lib/php/bridge
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/bridge/php/*.php $(1)/usr/lib/php/bridge
+
+	# Installing run-bridge script in /usr/bin
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) ./files/run-bridge $(1)/usr/bin
+	$(INSTALL_BIN) ./files/kill-bridge $(1)/usr/bin
+	#$(INSTALL_BIN) ./files/bridge-error $(1)/usr/bin
+	#$(INSTALL_BIN) ./files/bridge-started $(1)/usr/bin
+	#$(INSTALL_BIN) ./files/bridge-stopped $(1)/usr/bin
 endef
 
 $(eval $(call BuildPackage,cpu-mcu-bridge))

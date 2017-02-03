@@ -5,7 +5,9 @@ if [ "x$PID" != "x" ]; then
 	/bin/kill -9 $PID
 fi
 
-bridge-stopped
+if [ -e /usr/bin/bridge-stopped ]; then
+	/usr/bin/bridge-stopped
+fi
 
 PID=`/usr/bin/pgrep -f "/bin/ash --login"`
 if [ "x$PID" != "x" ]; then

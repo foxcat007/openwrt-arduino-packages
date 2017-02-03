@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=yun-scripts
 PKG_VERSION:=1.3
-PKG_RELEASE:=3
+PKG_RELEASE:=4
 
 PKG_MAINTAINER:=
 PKG_LICENSE:=
@@ -44,8 +44,6 @@ define Package/yun-scripts/install
 	$(INSTALL_BIN) ./files/usr/bin/merge-sketch-with-bootloader.lua $(1)/usr/bin/
 	$(INSTALL_BIN) ./files/usr/bin/wifi-reset-button-pressed $(1)/usr/bin/
 	$(INSTALL_BIN) ./files/usr/bin/wifi-reset-button-released $(1)/usr/bin/
-	$(INSTALL_BIN) ./files/usr/bin/kill-bridge $(1)/usr/bin/
-	$(INSTALL_BIN) ./files/usr/bin/run-bridge $(1)/usr/bin/
 	$(INSTALL_BIN) ./files/usr/bin/reset-mcu $(1)/usr/bin/
 	$(INSTALL_BIN) ./files/usr/bin/special-storage-available $(1)/usr/bin/
 	$(INSTALL_BIN) ./files/usr/bin/pretty-wifi-info.lua $(1)/usr/bin
@@ -55,9 +53,6 @@ define Package/yun-scripts/install
 	$(INSTALL_BIN) ./files/usr/bin/get-gpio-conf $(1)/usr/bin
 	$(INSTALL_BIN) ./files/usr/bin/run-bossac $(1)/usr/bin
 	$(INSTALL_BIN) ./files/usr/bin/internet-check $(1)/usr/bin
-	$(INSTALL_BIN) ./files/usr/bin/bridge-error $(1)/usr/bin
-	$(INSTALL_BIN) ./files/usr/bin/bridge-started $(1)/usr/bin
-	$(INSTALL_BIN) ./files/usr/bin/bridge-stopped $(1)/usr/bin
 	$(INSTALL_BIN) ./files/usr/bin/autoflash-sketch-usb $(1)/usr/bin
 
 	$(INSTALL_BIN) ./files/etc/init.d/rename-wifi-if-access-point $(1)/etc/init.d
