@@ -27,7 +27,7 @@ PKG_CONFIG_DEPENDS:= \
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/$(PKG_NAME)
+define Package/ajtcl-alljoynjs
   TITLE:=AllJoyn Thin Client - AllJoynJS
   SECTION:=net
   CATEGORY:=Network
@@ -37,20 +37,20 @@ define Package/$(PKG_NAME)
   MENU:=1
 endef
 
-define Package/$(PKG_NAME)/description
+define Package/ajtcl-alljoynjs/description
 	AllJoyn Thin Client AllJoynJS binding is a basic, low-level JavaScript
 	interpreter that uses the Duktape embeddable JavaScript engine for developing
 	ad hoc peer-to-peer applications that use the AllJoyn protocol. MASTER Revision
 endef
 
-define Package/$(PKG_NAME)-samples
-$(call Package/$(PKG_NAME))
+define Package/ajtcl-alljoynjs-samples
+$(call Package/ajtcl-alljoynjs)
   TITLE+=- testing samples
-  DEPENDS:=$(PKG_NAME)
+  DEPENDS:=ajtcl-alljoynjs
   MENU:=0
 endef
 
-define Package/$(PKG_NAME)-samples/description
+define Package/ajtcl-alljoynjs-samples/description
 	Sample JavaScript programs that use AllJoyn via alljoyn.js.
 endef
 
@@ -78,13 +78,13 @@ define Build/Compile
 		"VARIANT=$(ALLJOYN_BUILD_VARIANT)"
 endef
 
-define Package/$(PKG_NAME)/install
+define Package/ajtcl-alljoynjs/install
 	$(INSTALL_DIR) $(1)/usr
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(CP) $(PKG_BUILD_DIR)/alljoynjs $(1)/usr/bin/
 endef
 
-define Package/$(PKG_NAME)-samples/install
+define Package/ajtcl-alljoynjs-samples/install
 	$(INSTALL_DIR) $(1)/usr
 	$(INSTALL_DIR) $(1)/usr/share
 	$(INSTALL_DIR) $(1)/usr/share/alljoyn.js
@@ -92,5 +92,5 @@ define Package/$(PKG_NAME)-samples/install
 endef
 
 $(eval $(call HostBuild))
-$(eval $(call BuildPackage,$(PKG_NAME)))
-$(eval $(call BuildPackage,$(PKG_NAME)-samples))
+$(eval $(call BuildPackage,ajtcl-alljoynjs))
+$(eval $(call BuildPackage,ajtcl-alljoynjs-samples))

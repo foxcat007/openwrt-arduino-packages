@@ -23,7 +23,7 @@ PKG_CONFIG_DEPENDS:= \
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/$(PKG_NAME)/Default
+define Package/ajtcl-services/Default
   SECTION:=net
   CATEGORY:=Network
   DEPENDS:=ajtcl
@@ -32,25 +32,25 @@ define Package/$(PKG_NAME)/Default
   MAINTAINER:=AllSeen Alliance <allseen-core@lists.allseenalliance.org>
 endef
 
-define Package/$(PKG_NAME)
-$(call Package/$(PKG_NAME)/Default)
+define Package/ajtcl-services
+$(call Package/ajtcl-services/Default)
   TITLE:=AllJoyn Thin Client - Base Services
   MENU:=0
 endef
 
-define Package/$(PKG_NAME)/description
+define Package/ajtcl-services/description
 	AllJoyn Thin Client Base Services is the standard AllJoyn services libraries for
 	the AllJoyn Thin Client C library for developing ad hoc peer-to-peer
 	applications that use the AllJoyn protocol. Revision : 7b875c76cb29304f955c5b5a4bafb2194c6f779e 
 endef
 
-#define Package/$(PKG_NAME)-samples
-#$(call Package/$(PKG_NAME)/Default)
+#define Package/ajtcl-services-samples
+#$(call Package/ajtcl-services/Default)
 #  TITLE:=AllJoyn Thin Client - Base Services - testing samples
 #  DEPENDS:=ajtcl
 #endef
 
-#define Package/$(PKG_NAME)-samples/description
+#define Package/ajtcl-services-samples/description
 #Alljoyn Thin Client Base Services samples.  (This is primarily for testing.)
 #endef
 
@@ -113,15 +113,15 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/libajtcl_services.so $(1)/usr/lib/
 endef
 
-define Package/$(PKG_NAME)/install
+define Package/ajtcl-services/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_BUILD_DIR)/libajtcl_services.so $(1)/usr/lib/
 endef
 
-#define Package/$(PKG_NAME)-samples/install
+#define Package/ajtcl-services-samples/install
 #	$(INSTALL_DIR) $(1)/usr/bin
 #endef
 
 $(eval $(call HostBuild))
-$(eval $(call BuildPackage,$(PKG_NAME)))
-#$(eval $(call BuildPackage,$(PKG_NAME)-samples))
+$(eval $(call BuildPackage,ajtcl-services))
+#$(eval $(call BuildPackage,ajtcl-services-samples))
