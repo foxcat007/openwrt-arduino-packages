@@ -13,6 +13,7 @@ PKG_SOURCE:=alljoyn-js-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://git.allseenalliance.org/cgit/core/alljoyn-js.git/snapshot/
 
 PKG_MD5SUM:=276767da532bf845ca014c7a5d8f7885
+PKG_HASH:=97e6bcf01409a083431cb4e57c1df6b348ae8d511f87d451c6df209877c283fc
 
 # PKG_SOURCE_VERSION:=$(PKG_REVISION)
 # PKG_SOURCE_URL:=https://git.allseenalliance.org/gerrit/core/alljoyn-js.git

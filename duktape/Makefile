@@ -10,15 +10,16 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=duktape
 PKG_VERSION:=1.2.4
 PKG_RELEASE:=1
-PKG_MD5SUM:=a103ddfd626b928001c2d383d7b30cdb
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 # PKG_SOURCE:=$(PKG_NAME)-master.tar.xz
 PKG_SOURCE_URL:=http://duktape.org/
 # PKG_SOURCE_URL:=http://duktape.org/snapshots/
+PKG_MD5SUM:=a103ddfd626b928001c2d383d7b30cdb
+PKG_HASH:=a52ff1af9750361041f51fb42cc74d3a6a2cb1be839034437f177625903811ca
 
 PKG_FILE:="$(STAGING_DIR)/pkginfo/libc.provides"
-PKG_CAT=`cat $(PKG_FILE) | grep libm.so.6` 
+PKG_CAT=`cat $(PKG_FILE) | grep libm.so.6`
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -61,7 +62,6 @@ endef
 
 define Package/duktape/install
 	$(INSTALL_DIR) $(1)/usr/bin/
-	
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/duk $(1)/usr/bin/
 endef
 
