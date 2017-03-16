@@ -37,6 +37,9 @@ define Build/Prepare
 	$(CP) $(PKG_BUILD_DIR)/Makefile.cmdline $(PKG_BUILD_DIR)/Makefile
 endef
 
+define Build/Configure
+endef
+
 define Build/Compile
 	CC=$(TARGET_CC) \
 	CCOPTS="$(TARGET_CFLAGS)" \
