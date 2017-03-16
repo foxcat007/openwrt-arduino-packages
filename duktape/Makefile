@@ -12,19 +12,13 @@ PKG_VERSION:=1.2.4
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
-# PKG_SOURCE:=$(PKG_NAME)-master.tar.xz
 PKG_SOURCE_URL:=http://duktape.org/
-# PKG_SOURCE_URL:=http://duktape.org/snapshots/
 PKG_MD5SUM:=a103ddfd626b928001c2d383d7b30cdb
 PKG_HASH:=a52ff1af9750361041f51fb42cc74d3a6a2cb1be839034437f177625903811ca
-
-PKG_FILE:="$(STAGING_DIR)/pkginfo/libc.provides"
-PKG_CAT=`cat $(PKG_FILE) | grep libm.so.6`
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/duktape
-	DEPENDS:=+libstdcpp +libc +libpthread
 	SECTION:=lang
 	CATEGORY:=Languages
 	TITLE:=Duktape embeddable JavaScript interpreter
@@ -39,15 +33,13 @@ define Package/duktape/description
 endef
 
 define Build/Prepare
-	(if [ ! $(PKG_CAT) ];then echo "libm.so.6" >> $(PKG_FILE); fi)
-	/bin/tar xvf $(DL_DIR)/$(PKG_SOURCE) -C $(PKG_BUILD_DIR) --strip-components=1
-	$(Build/Patch)
-	mv $(PKG_BUILD_DIR)/Makefile.cmdline $(PKG_BUILD_DIR)/Makefile
+	$(Build/Prepare/Default)
+	$(CP) $(PKG_BUILD_DIR)/Makefile.cmdline $(PKG_BUILD_DIR)/Makefile
 endef
 
 define Build/Compile
 	CC=$(TARGET_CC) \
-	CXX=$(TARGET_CXX) \
+	CCOPTS="$(TARGET_CFLAGS)" \
 	$(MAKE) -C $(PKG_BUILD_DIR) DESTDIR="$(PKG_INSTALL_DIR)"
 endef
 
@@ -65,5 +57,4 @@ define Package/duktape/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/duk $(1)/usr/bin/
 endef
 
-$(eval $(call HostBuild))
 $(eval $(call BuildPackage,duktape))
