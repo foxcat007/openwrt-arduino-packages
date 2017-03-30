@@ -13,7 +13,7 @@ PKG_HASH:=62a59221e655e7392ef852eb76c714f8c1bcbc515ccd3c2e94a071c31e26a804
 # PKG_SOURCE_VERSION:=$(PKG_REVISION)
 # PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/ajtcl-$(PKG_VERSION)
+#PKG_BUILD_DIR:=$(BUILD_DIR)/ajtcl-$(PKG_VERSION)
 PKG_SOURCE:=ajtcl-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://git.allseenalliance.org/cgit/core/ajtcl.git/snapshot/
 

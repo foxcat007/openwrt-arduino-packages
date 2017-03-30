@@ -19,7 +19,7 @@ PKG_HASH:=97e6bcf01409a083431cb4e57c1df6b348ae8d511f87d451c6df209877c283fc
 # PKG_SOURCE_URL:=https://git.allseenalliance.org/gerrit/core/alljoyn-js.git
 # PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/alljoyn-js-$(PKG_VERSION)
+#PKG_BUILD_DIR:=$(BUILD_DIR)/alljoyn-js-$(PKG_VERSION)
 
 PKG_BUILD_PARALLEL:=1
 
