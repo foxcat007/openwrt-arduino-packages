@@ -11,7 +11,7 @@ PKG_HASH:=21138a7999e7826f24857df18c0396c587e83500ff4a8c3e0251f7253a516080
 
 PKG_SOURCE:=base_tcl-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://git.allseenalliance.org/cgit/services/base_tcl.git/snapshot/
-#PKG_BUILD_DIR:=$(BUILD_DIR)/base_tcl-$(PKG_VERSION)
+PKG_BUILD_DIR:=$(BUILD_DIR)/base_tcl-$(PKG_VERSION)
 
 # PKG_SOURCE_VERSION:=$(PKG_REVISION)
 # PKG_SOURCE_URL:=https://git.allseenalliance.org/gerrit/services/base_tcl.git
