@@ -11,6 +11,11 @@ config timeserver ntp
 	option enabled '1'
 	option enable_server '0'
 
+config rngd
+	option enabled '1'
+	option device '/dev/urandom'
+	option fill_watermark '4000'
+
 config button
 	option button 'wps'
 	option action 'pressed'
