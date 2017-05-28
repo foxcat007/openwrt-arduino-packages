@@ -35,6 +35,9 @@ define Package/yun-scripts/install
 	$(INSTALL_BIN) ./files/usr/bin/blink-start $(1)/usr/bin/
 	$(INSTALL_BIN) ./files/usr/bin/blink-stop $(1)/usr/bin/
 	$(INSTALL_BIN) ./files/usr/bin/boot-complete-notify $(1)/usr/bin/
+	$(INSTALL_BIN) ./files/usr/bin/bridge-error $(1)/usr/bin/
+	$(INSTALL_BIN) ./files/usr/bin/bridge-started $(1)/usr/bin/
+	$(INSTALL_BIN) ./files/usr/bin/bridge-stopped $(1)/usr/bin/
 	$(INSTALL_BIN) ./files/usr/bin/update-file-available $(1)/usr/bin/
 	$(INSTALL_BIN) ./files/usr/bin/run-sysupgrade $(1)/usr/bin/
 	$(INSTALL_BIN) ./files/usr/bin/wifi-live-or-reset $(1)/usr/bin/
