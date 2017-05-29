@@ -11,7 +11,8 @@ yun-shield)
 	GPIO_HANDSHAKE_OE=16
 	GPIO_UART_OE=17
 	GPIO_HANDSHAKE=18
-	AVRDUDE_CONF="/etc/avrdude_nuy.conf"
+	#AVRDUDE_CONF="/etc/avrdude_nuy.conf"
+	AVRDUDE_CONF="/etc/avrdude.conf"
 	LED_BOOT_DONE="yun-shield:white:system"
 	LED_RESET_BLINK="yun-shield:white:system"
 	LED_USER="yun-shield:red:user"
@@ -22,7 +23,8 @@ arduino-yun)
 	GPIO_HANDSHAKE_OE=22
 	GPIO_UART_OE=23
 	GPIO_HANDSHAKE=19
-	AVRDUDE_CONF="/etc/avrdude_yun.conf"
+	#AVRDUDE_CONF="/etc/avrdude_yun.conf"
+	AVRDUDE_CONF="/etc/avrdude.conf"
 	LED_BOOT_DONE="arduino:white:usb"
 	LED_RESET_BLINK="arduino:blue:wlan"
 	LED_USER="arduino:blue:wlan"

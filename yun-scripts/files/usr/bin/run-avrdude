@@ -3,7 +3,9 @@
 . /usr/bin/get-gpio-conf
 . /lib/ar71xx.sh
 
-LINUXSPI=linuxspi_$(ar71xx_board_name)
+# openwrt/packages avrdude not yet support linuxspi
+#LINUXSPI=linuxspi_$(ar71xx_board_name)
+LINUXSPI=linuxgpio_$(ar71xx_board_name)
 
 HEX=$1
 
