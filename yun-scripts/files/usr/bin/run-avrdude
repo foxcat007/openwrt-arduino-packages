@@ -3,9 +3,7 @@
 . /usr/bin/get-gpio-conf
 . /lib/ar71xx.sh
 
-# openwrt/packages avrdude not yet support linuxspi
-#LINUXSPI=linuxspi_$(ar71xx_board_name)
-LINUXSPI=linuxgpio_$(ar71xx_board_name)
+LINUXGPIO=linuxgpio_$(ar71xx_board_name)
 
 HEX=$1
 
@@ -61,7 +59,7 @@ MCU=$(echo $MCU | awk '{print tolower($0)}')
 if [ "x$MCU" = "xm32u4" -o "x$MCU" = "xatmega32u4" ]
 then
 	MCU="m32u4"
-	avrdude  -q -q -c $LINUXSPI -P /dev/spidev1.0 -p m32u4 -U efuse:r:/tmp/efuse:d
+	avrdude  -q -q -c $LINUXGPIO -C /etc/avrdude.conf -p m32u4 -U efuse:r:/tmp/efuse:d
 	read EFUSE < /tmp/efuse
 	rm -f /tmp/efuse
 fi
@@ -71,7 +69,7 @@ then
 	FUSES_EXT="0xCB"
 fi
 
-avrdude -c $LINUXSPI -P /dev/spidev1.0 -p $MCU -U lfuse:w:$FUSES_LOW:m -U hfuse:w:$FUSES_HIGH:m -U efuse:w:$FUSES_EXT:m -Uflash:w:$HEX:i $VERBOSE
+avrdude -c $LINUXGPIO -C /etc/avrdude.conf -p $MCU -U lfuse:w:$FUSES_LOW:m -U hfuse:w:$FUSES_HIGH:m -U efuse:w:$FUSES_EXT:m -Uflash:w:$HEX:i $VERBOSE
 avrdude_return=$?
 
 echo 0 > /sys/class/gpio/gpio$GPIO_SPI_OE/value
