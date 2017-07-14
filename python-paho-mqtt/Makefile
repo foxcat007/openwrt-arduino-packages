@@ -35,7 +35,7 @@ define Package/python-paho-mqtt/description
  MQTT version 3.1/3.1.1 client class
 endef
 
-define Build/Compile
+define PyBuild/Compile
 	$(call Build/Compile/PyMod,,install --prefix=/usr --root=$(PKG_INSTALL_DIR))
 endef
 
