@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=paho-mqtt
-PKG_VERSION:=1.3.0
+PKG_VERSION:=1.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://pypi.python.org/packages/33/7f/3ce1ffebaa0343d509aac003800b305d821e89dac3c11666f92e12feca14
-PKG_HASH:=2c9ef5494cfc1e41a9fff6544c5a2cd59ea5d401d9119a06ecf7fad6a2ffeb93
+PKG_SOURCE_URL:=https://pypi.python.org/packages/source/p/paho-mqtt/
+PKG_HASH:=0f7a629efe6e3a2c61b59d3550aa9f2c4529b5689a65fde45e6f1ac36b9a261e
 
 PKG_MAINTAINER:=Hirokazu MORIKAWA <morikw2@gmail.com>
 PKG_LICENSE:=EPL-1.0
@@ -32,7 +32,7 @@ define Package/python-paho-mqtt
 endef
 
 define Package/python-paho-mqtt/description
-MQTT version 3.1.1 client class
+ MQTT version 3.1/3.1.1 client class
 endef
 
 define Build/Compile
